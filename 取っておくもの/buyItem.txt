@@ -1,0 +1,20 @@
+
+<%@ page import = "com.internousdev.ecsite.dto.ItemInfoDTO"%>
+<%@ page import = "com.internousdev.ecsite.dao.ItemListDAO"%>
+<%@ page import = "com.internousdev.ecsite.dto.ItemInfoDTO"%>
+<%@ page import = "java.util.ArrayList"%>
+<%@ page import = "java.sql.SQLException"%>
+<%@ page import = ""%>
+
+
+
+
+<%!
+
+ItemListDAO itemInfoDAO = new ItemListDAO();
+ArrayList<ItemInfoDTO> itemList = new ArrayList<ItemInfoDTO>();
+
+public void getItemList() throws SQLException{
+	itemList = itemInfoDAO.getItemInfo();
+}
+%>

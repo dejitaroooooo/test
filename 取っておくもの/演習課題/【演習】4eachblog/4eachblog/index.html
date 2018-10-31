@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+    
+    <head>
+        <meta charaset="UTF-8">
+        <title>レイアウト</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        
+        <!--jQuery-演習課題追加分（ここから）-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
+        <script>
+            $(document).ready(function(){
+                $('.abc').bxSlider({
+                auto:true,
+                mode:'horizontal',
+                speed:2000,
+                slideWidth:400});
+            });
+        </script>
+        <!--jQuery-演習課題追加分（ここまで）-->
+    </head>
+    
+    <body>
+
+        <header>
+        <div class="logo">
+            <img src="4eachblog_logo.jpg">
+        </div>
+            <div class="menue">
+                <ul>
+                    <li>トップ</li>
+                    <li>プロフィール</li>
+                    <li>4eachについて</li>
+                    <li>登録フォーム</li>
+                    <li>問い合わせ</li>
+                    <li>その他</li>
+                </ul>
+            </div>
+        </header>
+
+        <main>
+            <div class="main-container">
+                                              
+                <!--左側-->
+                <div class="left">
+                    <h1>プログラミングに役立つ書籍</h1>
+                    
+                    <!--時計マークの表示-->
+                    <i class="fa fa-clock-o"></i>
+                    
+                    2017年1月15日 
+ <!--                                       
+                    <div class="bookstore">
+                        <img src="bookstore.jpg">
+                    </div>
+-->                    
+                     <!--jQuery-演習課題追加分（ここから）-->
+                    <div class="abc">
+                        <div><img src="jQuery_image1.jpg"></div>
+                        <div><img src="jQuery_image2.jpg"></div>
+                        <div><img src="jQuery_image3.jpg"></div>
+                        <div><img src="jQuery_image4.jpg"></div>
+                        <div><img src="jQuery_image5.jpg"></div>
+                    </div>
+                    <!--jQuery-演習課題追加分（ここまで）-->  
+                    
+                    4eachはインターノウスが提供するオンラインでプログラミングが勉強できるイーラーニングシステムです。                    
+                    
+                    <p>
+                    記事中身
+                    </p>
+                    
+                    <!--外枠-->
+                    <div class="pic_set_outside">
+                        <!--内枠-->
+                        <div class="pic_set_inside">  
+                            <!--上段-->
+                            <div class="pic_set_container">
+                                <img src="pic1.jpg">
+                                ドメイン取得法
+                            </div>                       
+                            <div class="pic_set_container">
+                                <img src="pic2.jpg">
+                                快適な職場環境
+                            </div>                       
+                            <div class="pic_set_container">
+                                <img src="pic3.jpg">
+                                Linuxの基礎
+                            </div>                       
+                            <div class="pic_set_container">
+                                <img src="pic4.jpg">
+                                マーケティング入門
+                            </div>
+                        </div>
+                        
+                            <!--下段-->
+                        <div class="pic_set_inside">    
+                            <div class="pic_set_container">
+                               <img src="pic5.jpg">
+                                アクティブラーニング
+                            </div>
+                            <div class="pic_set_container">
+                                <img src="pic6.jpg">
+                                CSSの効果的な勉強法
+                            </div>
+                            <div class="pic_set_container">
+                                <img src="pic7.jpg">
+                                リーダブルとは
+                            </div>
+                            <div class="pic_set_container">
+                                <img src="pic8.jpg">
+                                HTML5の可能性
+                            </div>
+                        </div>
+                      </div>
+                </div>
+
+                <!--右側-->
+                <div class="right">
+                    <h2>人気の記事</h2> 
+                        <ul>
+                            <li>PHP オススメ本</li>
+                            <li>PHP MyAdminの使い方</li>
+                            <li>今人気のエディタ Top5</li>
+                            <li>HTMLの基礎</li>
+                        </ul>
+                    <h2>オススメリンク</h2> 
+                        <ul>
+                            <li>インターノウス株式会社</li>
+                            <li>XAMPPのダウンロード</li>
+                            <li>Eclipseのダウンロード</li>
+                            <li>Bracketsのダウンロード</li>
+                            </ul>
+                    <h2>カテゴリ</h2> 
+                        <ul>
+                            <li>HTML</li>
+                            <li>PHP</li>
+                            <li>MySQL</li>
+                            <li>JavaScript</li>
+                    </ul>
+                </div>
+            </div>        
+        </main>
+        
+        <footer>
+            copyright (C) internous | 4each blog is the one whitch provides A to Z about programming.
+        </footer>
+        
+    </body>
+    
+</html>
