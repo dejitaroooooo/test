@@ -92,6 +92,9 @@
 				<s:form action="ItemListAction">
 					<s:submit value="一覧"/>
 				</s:form>
+				<s:form action="ItemEditAction">
+					<s:submit value="編集"/>
+				</s:form>
 			</div>
 			<!-- ユーザ -->
 			<div id="user">

@@ -120,5 +120,10 @@
 		<result name="success">buyItemList.jsp</result>
 	</action>
 
+	<!-- ItemEditAction -->
+	<action name="ItemEditAction" class="com.internousdev.ecsite.action.ItemEditAction" method="execute">
+		<result name="success">itemEdit.jsp</result>
+	</action>
+
 	</package>
 </struts>

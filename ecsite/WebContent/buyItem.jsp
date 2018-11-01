@@ -94,35 +94,14 @@
 								<span>購入個数</span>
 							</td>
 							<td>
-
-<script type="text/css">
-
-
-
-
-</script>
-
-<select name="count">
-<%
-String StringStock = request.getAttribute("itemStock").toString();
-int stock = 100;
-for(int i=1;i<=stock;i++){%>
-<option value="<%=i%>"><%=i%></option>
-<%}%>
-</select>
-
-
-<%-- 								<select name="count" > --%>
-<!-- 									<option value="1" selected="selected">1</option> -->
-<!-- 									<option value="2">2</option> -->
-<!-- 									<option value="3">3</option> -->
-<!-- 									<option value="4">4</option> -->
-<!-- 									<option value="5">5</option> -->
-<%-- 								</select> --%>
-
-
-
-
+								<select name="count">
+								<%
+								String StringStock = request.getAttribute("itemStock").toString();
+								int stock = Integer.parseInt(StringStock);
+								for(int i=1;i<=stock;i++){%>
+								<option value="<%=i%>"><%=i%></option>
+								<%}%>
+								</select>
 							</td>
 						</tr>
 						<tr>

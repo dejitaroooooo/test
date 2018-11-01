@@ -10,7 +10,7 @@
 <meta http-equiv="imagetoolbar" content="no"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
-<title>MyPage画面</title>
+<title>ItemEdit画面</title>
 
 <style type="text/css">
 /* TAG LAYOUT */
@@ -28,6 +28,7 @@
 		text-align:center;
 		margin:0 auto;
 	}
+
 /* 	ID LAYOUT */
 	#top{
 		width:780px;
@@ -41,16 +42,12 @@
 	}
 	#main{
 		width:100%;
-/* 		height:500px; */
+		height:500px;
 		text-align:center;
-	}
-	#push{
-	height:50px;
 	}
 	#footer{
 		width:100%;
 		height:80px;
-		margin-bttom: -50px;
 		background-color:black;
 		clear:both;
 	}
@@ -67,52 +64,44 @@
 	</div>
 	<div id="main">
 		<div id="top">
-			<p>MyPage</p>
+			<p>ItemEdit</p>
 		</div>
 		<div>
-			<s:if test="myPageList == null">
-				<h3>ご購入情報はありません。</h3>
-			</s:if>
-			<s:elseif test="message == null">
-				<h3>ご購入情報は以下になります。</h3>
-				<table border="1">
+			<h3>商品一覧</h3>
+			<s:form action="ItemEditAction">
+			<table border="1">
+				<tr>
+					<th>商品名</th>
+					<th>価格</th>
+					<th>ストック数</th>
+					<th>登録日</th>
+					<th>編集</th>
+					<th>削除</th>
+				</tr>
+				<s:iterator value="itemList" status="st">
 					<tr>
-						<th>商品名</th>
-						<th>値段</th>
-						<th>購入個数</th>
-						<th>支払い方法</th>
-						<th>購入日</th>
-					</tr>
-					<s:iterator value="myPageList">
-						<tr>
-							<td><s:property value="itemName"/></td>
-							<td><s:property value="totalPrice"/><span>円</span></td>
-							<td><s:property value="totalCount"/><span>個</span></td>
-							<td><s:property value="payment"/></td>
-							<td><s:property value="insert_date"/></td>
-						</tr>
-					</s:iterator>
 
-				</table>
-				<s:form action="MyPageAction">
-					<input type="hidden" name="deleteFlg" value="1">
-					<s:submit value="削除" method="delete"/>
-				</s:form>
-			</s:elseif>
-			<s:if test="message != null">
-				<h3><s:property value="message"/></h3>
-			</s:if>
+						<td><s:textfield style="display: inline" name="itemName"/><s:hidden name="tagId"/></td>
+<%-- 						<td><s:textfield name="itemPrice"/></td> --%>
+<%-- 						<td><s:textfield name="itemStock"/></td> --%>
+<%-- 						<td><s:property value="insertDate"/></td> --%>
+					</tr>
+				</s:iterator>
+			</table>
+			</s:form>
+			<s:form action="ItemListDeleteConfirmAction">
+				<s:submit value="削除"/>
+			</s:form>
 			<div id="text-right">
-				<p>Homeへ戻る場合は<a href='<s:url action="GoHomeAction"/>'>こちら</a></p>
-				<p>ログアウトする場合は<a href='<s:url action="LogoutAction"/>'>こちら</a></p>
+				<p>管理者画面TOPへ戻る場合は<a href='<s:url action="AdminAction"/>'>こちら</a></p>
 			</div>
-		</div>
-		<div id = "push">
 		</div>
 	</div>
 	<div id="footer">
 		<div id="pr">
 		</div>
 	</div>
+
+
 </body>
 </html>
