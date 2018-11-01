@@ -83,7 +83,7 @@
 			<p>Admin</p>
 		</div>
 		<div id="text-center">
-			<!-- 商品関係(左側) -->
+			<!-- 商品関係 -->
 			<div id="content">
 				<p>商品</p>
 				<s:form action="ItemCreateAction">
@@ -93,13 +93,18 @@
 					<s:submit value="一覧"/>
 				</s:form>
 			</div>
-			<!-- ユーザ(右側) -->
+			<!-- ユーザ -->
 			<div id="user">
 				<p>ユーザ</p>
 				<s:form action="UserCreateAction">
 					<s:submit value="新規登録"/>
 				</s:form>
 				<s:form action="UserListAction">
+					<s:submit value="一覧"/>
+				</s:form>
+			</div>
+			<div id="history">
+				<s:form action="BuyItemListAction">
 					<s:submit value="一覧"/>
 				</s:form>
 			</div>

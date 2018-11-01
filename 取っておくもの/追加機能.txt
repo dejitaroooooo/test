@@ -1,7 +1,13 @@
 ・追加した機能
 ・・商品の連続登録
 
+・仕様の変更
+・・LoginActionでsuccessが戻ったときの画面遷移先をbuyItem.jspからhome.jspに変更
+
 ・追加予定の機能
+・・購入画面の商品の購入個数と在庫数を連動
+・・購入履歴の一覧表示
+・・「ログインしました」画面の追加
 ・・ユーザの退会
 ・・購入画面での商品のリスト表示
 ・・在庫の動的表示
@@ -15,6 +21,14 @@ jsp内でのメソッドの宣言
 https://www.javadrive.jp/servlet/jsp_scripting/index4.html
 jspの繰り返し処理
 http://www.rsch.tuis.ac.jp/~nagai/SYS/SYS11n.html
+よくあるリストの追加、編集、削除
+https://ameblo.jp/tyoku123/entry-10434812348.html
+<logic:iterate>で回っている回数を取得するindexId
+http://seesaawiki.jp/w/warp1030/d/%3Clogic:iterate%3E%A4%C7%B2%F3%A4%C3%A4%C6%A4%A4%A4%EB%B2%F3%BF%F4%A4%F2%BC%E8%C6%C0%A4%B9%A4%EBindexId
+JSP→Javascript→サーブレットと値を渡したい
+https://teratail.com/questions/99801
+JSPタグリファレンス
+http://tag.main.jp/index.html
 
 https://www13.atwiki.jp/lele/pages/14.html
 https://ameblo.jp/tyoku123/entry-10434877520.html

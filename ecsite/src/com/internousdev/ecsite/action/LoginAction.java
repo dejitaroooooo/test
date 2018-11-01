@@ -4,9 +4,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.ecsite.dao.BuyItemDAO;
 import com.internousdev.ecsite.dao.LoginDAO;
-import com.internousdev.ecsite.dto.BuyItemDTO;
 import com.internousdev.ecsite.dto.LoginDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -16,7 +14,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	public Map<String, Object> session;
 	private LoginDAO loginDAO = new LoginDAO();
 	private LoginDTO loginDTO = new LoginDTO();
-	private BuyItemDAO buyItemDAO = new BuyItemDAO();
+//	private BuyItemDAO buyItemDAO = new BuyItemDAO();
 
 	public String execute(){
 		String result = ERROR;
@@ -27,11 +25,11 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		 * 次の画面で「商品情報」が必要なため商品情報を取得する。*/
 		if(((LoginDTO) session.get("loginUser")).getLoginFlg()){
 			result = SUCCESS;
-			BuyItemDTO buyItemDTO = buyItemDAO.getBuyItemInfo();
+//			BuyItemDTO buyItemDTO = buyItemDAO.getBuyItemInfo();
 			session.put("login_user_id", loginDTO.getLoginId());
-			session.put("id", buyItemDTO.getId());
-			session.put("buyItem_name", buyItemDTO.getItemName());
-			session.put("buyItem_price",buyItemDTO.getItemPrice());
+//			session.put("id", buyItemDTO.getId());
+//			session.put("buyItem_name", buyItemDTO.getItemName());
+//			session.put("buyItem_price",buyItemDTO.getItemPrice());
 			return result;
 		}
 		return result;

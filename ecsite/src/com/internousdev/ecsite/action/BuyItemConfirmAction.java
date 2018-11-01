@@ -14,7 +14,7 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
 
 	public String execute() throws SQLException{
 		buyItemCompleteDAO.buyItemeInfo(
-			session.get("id").toString(),
+			session.get("buyItem_id").toString(),
 			session.get("login_user_id").toString(),
 			session.get("total_price").toString(),
 			session.get("count").toString(),

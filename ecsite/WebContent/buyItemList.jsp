@@ -10,17 +10,15 @@
 <meta http-equiv="imagetoolbar" content="no"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<title>BuyItemConfirm画面</title>
+<title>BuyItemList画面</title>
 
 <style type="text/css">
-/* TAG LAYOUT */
 	body{
 		margin:0;
 		padding:0;
 		line-height:1.6;
 		letter-spacing:1px;
-		font-family: Verdana, Helvetica, sans-serif;
+		font-family:Verdana, Helvetica, sans-serif;
 		font-size:12px;
 		color:#333;
 		background:#fff;
@@ -29,7 +27,7 @@
 		text-align:center;
 		margin:0 auto;
 	}
-/* 	ID LAYOUT */
+/* 	ecsite LAYOUT */
 	#top{
 		width:780px;
 		margin:30px auto;
@@ -45,20 +43,32 @@
 		height:500px;
 		text-align:center;
 	}
+
+	#content{
+		margin: 5px;
+		float:left;
+		border: 1px solid black;
+	}
+	#user{
+		margin: 5px;
+		float:left;
+		border: 1px solid black;
+	}
+	#under{
+		clear:left;
+	}
+
 	#footer{
 		width:100%;
 		height:80px;
 		background-color:black;
 		clear:both;
 	}
-</style>
-<script type="text/javascript">
-	function submitAction(url){
-		$('form').attr('action',url);
-		$('form').submit();
+	#text-center{
+		display:inline-block;
+		text-align:center;
 	}
-</script>
-
+</style>
 </head>
 <body>
 	<div id="header">
@@ -67,40 +77,30 @@
 	</div>
 	<div id="main">
 		<div id="top">
-			<p>BuyItem</p>
+			<p>UserList</p>
 		</div>
 		<div>
-			<s:form>
+			<h3>購入履歴一覧</h3>
+			<table border="1">
 				<tr>
-					<td>商品名</td>
-					<td><s:property value="session.buyItem_name"/>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
 				</tr>
-				<tr>
-					<td>価格</td>
-					<td><s:property value="session.total_price"/><span>円</span>
-				</tr>
-				<tr>
-					<td>購入個数</td>
-					<td><s:property value="session.count"/><span>個</span>
-				</tr>
-				<tr>
-					<td>支払い方法</td>
-					<td><s:property value="session.pay"/>
-				</tr>
-				<tr>
-					<td><input type="button" value="戻る" onclick="submitAction('HomeAction')"/><td>
-					<td><input type="button" value="完了" onclick="submitAction('BuyItemConfirmAction')"/><td>
-				</tr>
+				<s:iterator value="">
+					<tr>
+						<td><s:property value=""/></td>
+					</tr>
+				</s:iterator>
+			</table>
+			<s:form action="">
+				<s:submit value="削除"/>
 			</s:form>
+			<div id="text-right">
+				<p>管理画面TOPへ戻る場合は<a href='<s:url action="AdminAction"/>'>こちら</a></p>
+			</div>
 		</div>
-	</div>
-	<div id="footer">
-		<div id="pr">
-		</div>
-	</div>
-	<div>
-		<p>前画面に戻る場合は<a href='<s:url action="GoHomeAction"/>'>こちら</a></p>
-		<p>マイページは<a href='<s:url action="MyPageAction"/>'>こちら</a></p>
 	</div>
 	<div id="footer">
 		<div id="pr">

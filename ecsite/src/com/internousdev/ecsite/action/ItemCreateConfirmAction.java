@@ -23,27 +23,30 @@ public class ItemCreateConfirmAction extends ActionSupport implements SessionAwa
 		String result = SUCCESS;
 
 		/*入力漏れがないか確認*/
-		for(int i=0; i<registrationItem.size(); i++){
+//		for(int i=0; i<registrationItem.size(); i++){
 
 			/*デバック用*/
-			System.out.println("商品名：" + registrationItem.get(i).getItemName());
-			System.out.println("価格：" + registrationItem.get(i).getItemPrice());
-			System.out.println("在庫数：" + registrationItem.get(i).getItemStock());
+//			System.out.println("商品名：" + registrationItem.get(i).getItemName());
+//			System.out.println("価格：" + registrationItem.get(i).getItemPrice());
+//			System.out.println("在庫数：" + registrationItem.get(i).getItemStock());
 
-			if(!(registrationItem.get(i).getItemName().equals(""))
-					&& !(registrationItem.get(i).getItemPrice().equals(""))
-					&& !(registrationItem.get(i).getItemStock().equals(""))){
-//				session.put("itemName", itemName);
-//				session.put("itemPrice", itemPrice);
-//				session.put("itemStock", itemStock);
+//			if(!(registrationItem.get(i).getItemName().equals(""))
+//					&& !(registrationItem.get(i).getItemPrice().equals(""))
+//					&& !(registrationItem.get(i).getItemStock().equals(""))){
+			if(!(itemName.equals(""))
+				&& !(itemPrice.equals(""))
+				&& !(itemStock.equals(""))){
+				session.put("createItemName", itemName);
+				session.put("createItemPrice", itemPrice);
+				session.put("createItemStock", itemStock);
 			}
 			else{
 				setErrorMessage("未入力の項目があります。");
 				result = ERROR;
-			}
+//			}
 		}
 		/*Mapに登録*/
-		session.put("registrationItem", registrationItem);
+//		session.put("registrationItem", registrationItem);
 
 		return result;
 	}

@@ -18,13 +18,13 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 	private String message;
 
 	public String execute() throws SQLException{
-		if(!session.containsKey("id")){
+		if(!session.containsKey("login_user_id")){
 			return ERROR;
 		}
 
 		/*履歴の削除がされているか否かチェック*/
 		if(deleteFlg == null){
-			String item_transaction_id = session.get("id").toString();
+			String item_transaction_id = session.get("buyItem_id").toString();
 			String user_master_id = session.get("login_user_id").toString();
 			/*DBから取得した履歴情報を「myPageList」に格納*/
 			myPageList = myPageDAO.getMyPageUserInfo(item_transaction_id, user_master_id);
@@ -38,7 +38,7 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 	}
 
 	public void delete() throws SQLException{
-		String item_transaction_id = session.get("id").toString();
+		String item_transaction_id = session.get("buyItem_id").toString();
 		String user_master_id = session.get("login_user_id").toString();
 		int res = myPageDAO.buyItemHistoryDelete(item_transaction_id,user_master_id);
 		if(res>0){
