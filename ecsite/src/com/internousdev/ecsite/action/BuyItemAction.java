@@ -11,8 +11,9 @@ public class BuyItemAction extends ActionSupport implements SessionAware{
 	public Map<String, Object> session;
 	private String id;
 	private String itemName;
-	private String itemPrice;
+	private int itemPrice;
 	private int count;
+	private int itemStock;
 	private String pay;
 //	private ItemListDAO itemInfoDAO = new ItemListDAO();
 //	private ArrayList<ItemInfoDTO> itemList = new ArrayList<ItemInfoDTO>();
@@ -27,12 +28,13 @@ public class BuyItemAction extends ActionSupport implements SessionAware{
 		session.put("buyItem_id", id);
 		session.put("buyItem_name", itemName);
 		session.put("buy_item_price", itemPrice);
+		session.put("buy_item_Stock", itemStock);
 		session.put("count",count);
 //		int intCount = Integer.parseInt(session.get("count").toString());
 //		int intPrice = Integer.parseInt(session.get("buyItem_price").toString());
-		int intPrice = Integer.parseInt(itemPrice);
+//		int intPrice = Integer.parseInt(itemPrice);
 
-		session.put("total_price", count * intPrice);
+		session.put("total_price", count * itemPrice);
 
 		/*
 		System.out.println(itemList.size());
@@ -71,6 +73,14 @@ public class BuyItemAction extends ActionSupport implements SessionAware{
 	}
 	*/
 
+	public int getItemStock() {
+		return itemStock;
+	}
+
+	public void setItemStock(int itemStock) {
+		this.itemStock = itemStock;
+	}
+
 	public String getId() {
 		return id;
 	}
@@ -87,11 +97,11 @@ public class BuyItemAction extends ActionSupport implements SessionAware{
 		this.itemName = itemName;
 	}
 
-	public String getItemPrice() {
+	public int getItemPrice() {
 		return itemPrice;
 	}
 
-	public void setItemPrice(String itemPrice) {
+	public void setItemPrice(int itemPrice) {
 		this.itemPrice = itemPrice;
 	}
 

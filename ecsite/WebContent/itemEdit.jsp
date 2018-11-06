@@ -56,6 +56,19 @@
 		text-align:right;
 	}
 </style>
+
+<script type="text/javascript">
+// 	function delete(index){
+// 		vor form = document.forms[0];
+// 		form.editItemName.value = form.itemName[index].value;
+// 		form.editItemPrice.value = form.itemPrice[index].value;
+// 		form.editItemStock.value = form.itemStock[index].value;
+// 		if( !(confirm(form.editName.value+"タグを編集しますか？"))){
+// 			return;
+// 		}
+// 	}
+</script>
+
 </head>
 <body>
 	<div id="header">
@@ -80,14 +93,23 @@
 				</tr>
 				<s:iterator value="itemList" status="st">
 					<tr>
-
-						<td><s:textfield style="display: inline" name="itemName"/><s:hidden name="tagId"/></td>
+						<td><s:property value="itemName"/></td>
+						<td><s:property value="itemPrice"/></td>
+						<td><s:property value="itemStock"/></td>
+<%-- 						<td><s:textfield style="display: inline" name="itemName"/><s:hidden name="tagId"/></td> --%>
 <%-- 						<td><s:textfield name="itemPrice"/></td> --%>
 <%-- 						<td><s:textfield name="itemStock"/></td> --%>
 <%-- 						<td><s:property value="insertDate"/></td> --%>
+<%-- 						<td><input type="button" value="編集" name="btnDel" onclick="edittag('<s:property value="#st.index" />')"/></td> --%>
+<%-- 						<td><input type="button" value="削除" name="btnDel" onclick="deletetag('<s:property value="#st.index" />')"/></td> --%>
 					</tr>
 				</s:iterator>
 			</table>
+
+<%-- 			<s:hidden name="editItemName"/> --%>
+<%-- 			<s:hidden name="editItemPrice"/> --%>
+<%-- 			<s:hidden name="editItemStock"/> --%>
+
 			</s:form>
 			<s:form action="ItemListDeleteConfirmAction">
 				<s:submit value="削除"/>

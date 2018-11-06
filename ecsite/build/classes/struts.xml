@@ -120,9 +120,36 @@
 		<result name="success">buyItemList.jsp</result>
 	</action>
 
-	<!-- ItemEditAction -->
-	<action name="ItemEditAction" class="com.internousdev.ecsite.action.ItemEditAction" method="execute">
-		<result name="success">itemEdit.jsp</result>
+	<!-- OneItemEditAction -->
+	<action name="OneItemEditAction" class="com.internousdev.ecsite.action.OneItemEditAction" method="execute">
+		<result name="success">oneItemEdit.jsp</result>
+	</action>
+
+	<!-- OneItemEditCompleteAction -->
+	<action name="OneItemEditCompleteAction" class="com.internousdev.ecsite.action.OneItemEditCompleteAction" method="execute">
+		<result name="success">itemList.jsp</result>
+		<result name="error">oneItemEdit.jsp</result>
+	</action>
+
+	<!-- OneItemDeleteAction -->
+	<action name="OneItemDeleteAction" class="com.internousdev.ecsite.action.OneItemDeleteAction" method="execute">
+		<result name="success">itemList.jsp</result>
+	</action>
+
+	<!-- UserDeleteAction -->
+	<action name="UserDeleteAction" class="com.internousdev.ecsite.action.UserDeleteAction" method="execute">
+		<result name="success">userDelete.jsp</result>
+	</action>
+
+	<!-- UserDeleteConfirmAction -->
+	<action name="UserDeleteConfirmAction" class="com.internousdev.ecsite.action.UserDeleteConfirmAction" method="execute">
+		<result name="success">userDeleteConfirm.jsp</result>
+		<result name="error">userDelete.jsp</result>
+	</action>
+
+	<!-- UserDeleteCompleteAction -->
+	<action name="UserDeleteCompleteAction" class="com.internousdev.ecsite.action.UserDeleteCompleteAction" method="execute">
+		<result name="success">userDeleteComplete.jsp</result>
 	</action>
 
 	</package>

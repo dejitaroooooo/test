@@ -9,6 +9,7 @@
 
 ・追加予定の機能
 ・・商品、ユーザリストの追加、編集、削除
+・・在庫管理システム
 ・・購入履歴の一覧表示
 ・・「ログインしました」画面の追加
 ・・ユーザの退会
@@ -32,6 +33,9 @@ JSP→Javascript→サーブレットと値を渡したい
 https://teratail.com/questions/99801
 JSPタグリファレンス
 http://tag.main.jp/index.html
+「OK/キャンセル」ダイアログを表示して確認・分岐する方法
+https://www.nishishi.com/javascript-tips/confirm-dialog.html
 
 https://www13.atwiki.jp/lele/pages/14.html
 https://ameblo.jp/tyoku123/entry-10434877520.html
+http://www.gi.ce.t.kyoto-u.ac.jp/user/susaki/envinfo/jsp_form.html

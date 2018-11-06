@@ -5,20 +5,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="Content-Style-Type" content="text/css"/>
-<meta http-equiv="Content-Script-Type" content="text/javascript"/>
-<meta http-equiv="imagetoolbar" content="no"/>
-<meta name="description" content=""/>
-<meta name="keywords" content=""/>
-<title>Home画面</title>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<title>UserDeleteComplete画面</title>
 
 <style type="text/css">
+/* TAG LAYOUT */
 	body{
 		margin:0;
 		padding:0;
 		line-height:1.6;
 		letter-spacing:1px;
-		font-family:Verdana, Helvetica, sans-serif;
+		font-family: Verdana, Helvetica, sans-serif;
 		font-size:12px;
 		color:#333;
 		background:#fff;
@@ -27,7 +28,7 @@
 		text-align:center;
 		margin:0 auto;
 	}
-/* 	ecsite LAYOUT */
+/* 	ID LAYOUT */
 	#top{
 		width:780px;
 		margin:30px auto;
@@ -49,11 +50,7 @@
 		background-color:black;
 		clear:both;
 	}
-	#text-center{
-		display:inline-block;
-		text-align:center;
-	}
-	</style>
+</style>
 </head>
 <body>
 	<div id="header">
@@ -62,16 +59,13 @@
 	</div>
 	<div id="main">
 		<div id="top">
-			<p>Home</p>
+			<p>UserDeleteComplete</p>
 		</div>
-		<div id="text-center">
-			<s:form action="HomeAction">
-				<s:submit value="商品購入"/>
+		<div>
+			<h3>退会しました。</h3>
+			<s:form action="GoHomeAction">
+				<s:submit value="Homeへ"/>
 			</s:form>
-			<s:if test="#session.login_user_id != null">
-				<p>ログアウトする場合は<a href='<s:url action="LogoutAction"/>'>こちら</a></p>
-			</s:if>
-			<p>管理者用ページは<a href='<s:url action="AdminAction"/>'>こちら</a></p>
 		</div>
 	</div>
 	<div id="footer">
@@ -80,4 +74,3 @@
 	</div>
 </body>
 </html>
-

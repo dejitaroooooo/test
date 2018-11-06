@@ -42,7 +42,59 @@ public class ItemListDAO {
 		return itemInfoDTO;
 	}
 
+	public int updateItem(String id, String itemPrice, String itemStock) throws SQLException{
+		String sql ="UPDATE item_info_transaction SET item_price=?, item_stock=? WHERE id=?";
+		int ret = 0;
+		try{
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setString(1, itemPrice);
+			ps.setString(2, itemStock);
+			ps.setString(3, id);
+			ret = ps.executeUpdate();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		finally{
+			connection.close();
+		}
+		return ret;
+	}
 
+	public int oneItemDelete(String id) throws SQLException{
+		int ret = 1;
+		String presql = "SELECT item_transaction_id FROM user_buy_item_transaction WHERE item_transaction_id=?";
+		String sql = "DELETE FROM item_info_transaction WHERE id=?";
+
+		try{
+			PreparedStatement preps = connection.prepareStatement(presql);
+			preps.setString(1, id);
+			ResultSet resultSet = preps.executeQuery();
+
+			/*resultSetに行が存在するかどうかを判別*/
+			if(resultSet.isBeforeFirst()){
+				return -1;
+			}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+
+		try{
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setString(1, id);
+			ret = ps.executeUpdate();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+
+		finally{
+			connection.close();
+		}
+
+		return ret;
+	}
 
 
 }

@@ -92,7 +92,10 @@
 							<td><s:property value="insert_date"/></td>
 						</tr>
 					</s:iterator>
-
+					<tr bgcolor = "lightgray">
+						<td>総額</td>
+						<td><s:property value="totalPayment"/><span>円</span></td>
+					</tr>
 				</table>
 				<s:form action="MyPageAction">
 					<input type="hidden" name="deleteFlg" value="1">
@@ -105,6 +108,7 @@
 			<div id="text-right">
 				<p>Homeへ戻る場合は<a href='<s:url action="GoHomeAction"/>'>こちら</a></p>
 				<p>ログアウトする場合は<a href='<s:url action="LogoutAction"/>'>こちら</a></p>
+				<p>退会する場合は<a href='<s:url action="UserDeleteAction"/>'>こちら</a></p>
 			</div>
 		</div>
 		<div id = "push">

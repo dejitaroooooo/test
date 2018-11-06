@@ -11,13 +11,15 @@ public class BuyItemCompleteDAO {
 	private DBConnector dbConnector = new DBConnector();
 	private Connection connection = dbConnector.getConnection();
 	private DateUtil dateUtil = new DateUtil();
-	private String sql = "insert into user_buy_item_transaction"
-			+ "(item_transaction_id, total_price, total_count, "
-			+ "user_master_id, pay, insert_date) values (?,?,?,?,?,?)";
+	private String sql;
 
 	public void buyItemeInfo(String item_transaction_id,
 		String user_master_id, String total_price,
 		String total_count, String pay) throws SQLException{
+
+		sql = "insert into user_buy_item_transaction"
+			+ "(item_transaction_id, total_price, total_count, "
+			+ "user_master_id, pay, insert_date) values (?,?,?,?,?,?)";
 
 		try{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -36,4 +38,22 @@ public class BuyItemCompleteDAO {
 			connection.close();
 		}
 	}
+
+	public void itemStockDecrease(String id, String stock) throws SQLException{
+		sql ="UPDATE item_info_transaction SET item_stock=? WHERE id=?";
+
+		try{
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, stock);
+			preparedStatement.setString(2, id);
+			preparedStatement.execute();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		finally{
+			connection.close();
+		}
+	}
+
 }

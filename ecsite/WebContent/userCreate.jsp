@@ -63,8 +63,8 @@
 			<p>UserCreate</p>
 		</div>
 		<div>
-			<s:if test="errorMassage !=">
-				<s:property value="errorMassage" escape="false"/>
+			<s:if test="errorMessage != ''">
+				<h3><font color = "red"><s:property value="errorMessage" escape="false"/></font></h3>
 			</s:if>
 			<table>
 				<s:form action="UserCreateConfirmAction">

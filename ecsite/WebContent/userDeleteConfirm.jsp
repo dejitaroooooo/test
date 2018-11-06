@@ -11,8 +11,7 @@
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<title>itemListDeleteConfirm画面</title>
-
+<title>UserDeleteConfirm画面</title>
 <style type="text/css">
 /* TAG LAYOUT */
 	body{
@@ -70,19 +69,17 @@
 	</div>
 	<div id="main">
 		<div id="top">
-			<p>ItemListDeleteConfirm画面</p>
+			<p>UserDeleteConfirm</p>
 		</div>
 		<div>
-			<h3>すべての商品を削除します。よろしいですか？</h3>
-			<h3>（ただし、ユーザが購入している商品は削除されません）</h3>
-			<table>
-				<s:form>
+			<h3>退会するとID:<s:property value="session.login_user_id"/>に関するデータが全て削除されます。</h3>
+			<h3>よろしいですか？</h3>
+			<s:form>
 					<tr>
-						<td><input type="button" value="OK" onclick="submitAction('ItemListDeleteCompleteAction')"/></td>
-						<td><input type="button" value="キャンセル" onclick="submitAction('ItemListAction')"/></td>
+						<td><input type="button" value="OK" onclick="submitAction('UserDeleteCompleteAction')"/></td>
+						<td><input type="button" value="キャンセル" onclick="submitAction('MyPageAction')"/></td>
 					</tr>
-				</s:form>
-			</table>
+			</s:form>
 		</div>
 	</div>
 	<div id="footer">

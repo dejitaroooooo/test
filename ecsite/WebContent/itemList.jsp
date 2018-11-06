@@ -55,6 +55,22 @@
 		text-align:right;
 	}
 </style>
+<script type="text/javascript">
+	function deleteCheck(){
+//		String name = request.getAttribute("itemName").toString();
+//		var name = document.getElementById("tmp_value").value;
+//		String name = getElementById('itemName').value;
+//	    if( confirm( "次の商品を削除します。\nよろしいですか？\n[" + name + "]") ) {
+		if(confirm("商品を削除します。\nよろしいですか？")){
+			alert("削除します");
+//	    	document.deleteItem.submit();
+	    	return true;
+	    }
+	    else {
+	    	return false;
+	    }
+	}
+</script>
 </head>
 <body>
 	<div id="header">
@@ -66,23 +82,54 @@
 			<p>ItemList</p>
 		</div>
 		<div>
+			<s:if test="ret == -1">
+				<h3><font color="red"><s:property value="message"/></font></h3>
+			</s:if>
+			<s:elseif test="ret == 1">
+				<h3><s:property value="message"/></h3>
+			</s:elseif>
+
 			<h3>商品一覧</h3>
-			<table border="1">
-				<tr>
-					<th>商品名</th>
-					<th>価格</th>
-					<th>ストック数</th>
-					<th>登録日</th>
-				</tr>
-				<s:iterator value="itemList">
+				<table border="1">
 					<tr>
-						<td><s:property value="itemName"/></td>
-						<td><s:property value="itemPrice"/><span>円</span></td>
-						<td><s:property value="itemStock"/><span>個</span></td>
-						<td><s:property value="insertDate"/></td>
+						<th>商品名</th>
+						<th>価格</th>
+						<th>ストック数</th>
+						<th>登録日</th>
+						<th>編集</th>
+						<th>削除</th>
 					</tr>
-				</s:iterator>
-			</table>
+					<s:iterator value="itemList">
+						<tr>
+							<td><s:property value="itemName"/></td>
+							<td><s:property value="itemPrice"/><span>円</span></td>
+							<td><s:property value="itemStock"/><span>個</span></td>
+							<td><s:property value="insertDate"/></td>
+							<td>
+								<s:form action="OneItemEditAction">
+									<input type="hidden" name="id" value="<s:property value="id"/>"/>
+									<input type="hidden" name="itemName" value="<s:property value="itemName"/>"/>
+									<input type="hidden" name="itemPrice" value="<s:property value="itemPrice"/>"/>
+									<input type="hidden" name="itemStock" value="<s:property value="itemStock"/>"/>
+									<s:submit value="編集"/>
+								</s:form>
+							</td>
+							<td>
+								<s:form action="ItemListAction" name="deleteItem" onsubmit="return deleteCheck();">
+<!-- 								<form name="deleteItem"> -->
+									<input type="hidden" name="id" value="<s:property value="id"/>"/>
+									<input type="hidden" name="itemName" value="<s:property value="itemName"/>"/>
+<%-- 									<input type="hidden" name="itemPrice" value="<s:property value="itemPrice"/>"/> --%>
+<%-- 									<input type="hidden" name="itemStock" value="<s:property value="itemStock"/>"/> --%>
+									<input type="hidden" name="deleteFlg" value="1">
+									<input type="submit" value="削除" >
+<%-- 									<s:submit value="削除"/> --%>
+<!-- 								</form> -->
+								</s:form>
+							</td>
+						</tr>
+					</s:iterator>
+				</table>
 			<s:form action="ItemListDeleteConfirmAction">
 				<s:submit value="削除"/>
 			</s:form>

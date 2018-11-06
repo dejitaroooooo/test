@@ -102,6 +102,7 @@
 								<option value="<%=i%>"><%=i%></option>
 								<%}%>
 								</select>
+								<input type="hidden" name="itemStock" value="<s:property value="itemStock"/>">
 							</td>
 						</tr>
 						<tr>

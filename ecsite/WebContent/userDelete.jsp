@@ -10,9 +10,7 @@
 <meta http-equiv="imagetoolbar" content="no"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<title>itemListDeleteConfirm画面</title>
-
+<title>UserDelete画面</title>
 <style type="text/css">
 /* TAG LAYOUT */
 	body{
@@ -56,12 +54,6 @@
 		text-align:right;
 	}
 </style>
-<script type="text/javascript">
-	function submitAction(url){
-		$('form').attr('action',url);
-		$('form').submit();
-	}
-</script>
 </head>
 <body>
 	<div id="header">
@@ -70,22 +62,33 @@
 	</div>
 	<div id="main">
 		<div id="top">
-			<p>ItemListDeleteConfirm画面</p>
+			<p>UserDelete</p>
 		</div>
 		<div>
-			<h3>すべての商品を削除します。よろしいですか？</h3>
-			<h3>（ただし、ユーザが購入している商品は削除されません）</h3>
-			<table>
-				<s:form>
+			<s:if test="errorMessage != ''">
+				<h3><font color = "red"><s:property value="errorMessage" escape="false"/></font></h3>
+			</s:if>
+			<s:form action="UserDeleteConfirmAction">
+				<h3>パスワードを入力してください</h3>
+				<table>
 					<tr>
-						<td><input type="button" value="OK" onclick="submitAction('ItemListDeleteCompleteAction')"/></td>
-						<td><input type="button" value="キャンセル" onclick="submitAction('ItemListAction')"/></td>
+						<td>ID:</td>
+						<td><s:property value="session.login_user_id"/></td>
 					</tr>
-				</s:form>
-			</table>
+					<tr>
+						<td>PASS:</td>
+						<td><input type="text" name="loginPass"/></td>
+					</tr>
+					<s:submit value="送信"/>
+				</table>
+			</s:form>
+			<div id="text-right">
+				<p>戻る場合は<a href='<s:url action="MyPageAction"/>'>こちら</a><p>
+			</div>
+
 		</div>
 	</div>
-	<div id="footer">
+	<div id ="footer">
 		<div id="pr">
 		</div>
 	</div>
