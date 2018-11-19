@@ -1,7 +1,0 @@
-■新しい機能を追加するとき
-新規で作る
-・xxx.java
-・xxx.jsp
-記述を追加
-・web.xml
-・struts.xml

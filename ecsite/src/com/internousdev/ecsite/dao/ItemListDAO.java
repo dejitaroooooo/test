@@ -26,6 +26,38 @@ public class ItemListDAO {
 				ItemInfoDTO dto = new ItemInfoDTO();
 				dto.setId(resultSet.getString("id"));
 				dto.setItemName(resultSet.getString("item_name"));
+				dto.setItemGenre(resultSet.getString("item_genre"));
+				dto.setItemPrice(resultSet.getString("item_price"));
+				dto.setItemStock(resultSet.getString("item_stock"));
+				dto.setInsertDate(resultSet.getString("insert_date"));
+				itemInfoDTO.add(dto);
+			}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		finally{
+			connection.close();
+		}
+
+		return itemInfoDTO;
+	}
+
+	public ArrayList<ItemInfoDTO> getItemInfo(String genre) throws SQLException{
+		ArrayList<ItemInfoDTO> itemInfoDTO = new ArrayList<ItemInfoDTO>();
+
+		String sql = "select * from item_info_transaction where item_genre=?";
+
+		try{
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, genre);
+			ResultSet resultSet = preparedStatement.executeQuery();
+
+			while(resultSet.next()){
+				ItemInfoDTO dto = new ItemInfoDTO();
+				dto.setId(resultSet.getString("id"));
+				dto.setItemName(resultSet.getString("item_name"));
+				dto.setItemGenre(resultSet.getString("item_genre"));
 				dto.setItemPrice(resultSet.getString("item_price"));
 				dto.setItemStock(resultSet.getString("item_stock"));
 				dto.setInsertDate(resultSet.getString("insert_date"));

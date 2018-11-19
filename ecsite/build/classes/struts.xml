@@ -74,7 +74,7 @@
 		<result name="success">itemCreate.jsp</result>
 	</action>
 
-		<!-- ItemCreatConfirmAction -->
+	<!-- ItemCreatConfirmAction -->
 	<action name="ItemCreateConfirmAction" class="com.internousdev.ecsite.action.ItemCreateConfirmAction" method="execute">
 		<result name="success">itemCreateConfirm.jsp</result>
 		<result name="error">itemCreate.jsp</result>
@@ -115,11 +115,6 @@
 		<result name="success">userListDeleteComplete.jsp</result>
 	</action>
 
-	<!-- BuyItemListAction -->
-	<action name="BuyItemListAction" class="com.internousdev.ecsite.action.BuyItemListAction" method="execute">
-		<result name="success">buyItemList.jsp</result>
-	</action>
-
 	<!-- OneItemEditAction -->
 	<action name="OneItemEditAction" class="com.internousdev.ecsite.action.OneItemEditAction" method="execute">
 		<result name="success">oneItemEdit.jsp</result>
@@ -150,6 +145,26 @@
 	<!-- UserDeleteCompleteAction -->
 	<action name="UserDeleteCompleteAction" class="com.internousdev.ecsite.action.UserDeleteCompleteAction" method="execute">
 		<result name="success">userDeleteComplete.jsp</result>
+	</action>
+
+	<!-- UserBuyItemListAction -->
+	<action name="UserBuyItemListAction" class="com.internousdev.ecsite.action.UserBuyItemListAction" method="execute">
+		<result name="success">userBuyItemList.jsp</result>
+	</action>
+
+	<!-- ItemCreateFileReadAction -->
+	<action name="ItemCreateFileReadAction" class="com.internousdev.ecsite.action.ItemCreateFileReadAction" method="execute">
+		<result name="success">itemCreateFileRead.jsp</result>
+	</action>
+
+	<!-- ItemCreateFileReadCompleteAction -->
+	<action name="ItemCreateFileReadCompleteAction" class="com.internousdev.ecsite.action.ItemCreateFileReadCompleteAction" method="execute">
+		<result name="success">itemCreateFileReadComplete.jsp</result>
+	</action>
+
+	<!-- AnalysisAction -->
+	<action name="AnalysisAction" class="com.internousdev.ecsite.action.AnalysisAction" method="execute">
+		<result name="success">analysis.jsp</result>
 	</action>
 
 	</package>

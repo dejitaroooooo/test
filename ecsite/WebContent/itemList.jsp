@@ -12,58 +12,26 @@
 <meta name="keywords" content=""/>
 <title>ItemList画面</title>
 
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<link rel="stylesheet" type="text/css" href="./css/style-admin.css">
+
 <style type="text/css">
-/* TAG LAYOUT */
-	body{
-		margin:0;
-		padding:0;
-		line-height:1.6;
-		letter-spacing:1px;
-		font-family:Verdana, Helvetica, sans-serif;
-		font-size:12px;
-		color:#333;
-		background:#fff;
-	}
-	table{
-		text-align:center;
-		margin:0 auto;
-	}
-/* 	ID LAYOUT */
-	#top{
-		width:780px;
-		margin:30px auto;
-		border:1px solid #333;
-	}
-	#header{
-		width:100%;
-		height:80px;
-		background-color:black;
-	}
-	#main{
-		width:100%;
-		height:500px;
-		text-align:center;
-	}
-	#footer{
-		width:100%;
-		height:80px;
-		background-color:black;
-		clear:both;
-	}
-	#text-right{
-		display:inline-block;
-		text-align:right;
-	}
+
+img{
+	height:20px;
+	width:auto;
+}
+
 </style>
+
 <script type="text/javascript">
-	function deleteCheck(){
-//		String name = request.getAttribute("itemName").toString();
-//		var name = document.getElementById("tmp_value").value;
-//		String name = getElementById('itemName').value;
-//	    if( confirm( "次の商品を削除します。\nよろしいですか？\n[" + name + "]") ) {
-		if(confirm("商品を削除します。\nよろしいですか？")){
+	function deleteCheck(itemName){
+// 		https://www.ipentec.com/document/javascript-get-textbox-value
+<%-- var hoge = '<%=request.getAttribute("item")%>'; --%>
+var hoge = document.forms.deleteItem.item.value;
+
+		if(confirm("[" + hoge + "]を削除します。\nよろしいですか？")){
 			alert("削除します");
-//	    	document.deleteItem.submit();
 	    	return true;
 	    }
 	    else {
@@ -93,6 +61,8 @@
 				<table border="1">
 					<tr>
 						<th>商品名</th>
+						<th>画像</th>
+						<th>ジャンル</th>
 						<th>価格</th>
 						<th>ストック数</th>
 						<th>登録日</th>
@@ -102,6 +72,8 @@
 					<s:iterator value="itemList">
 						<tr>
 							<td><s:property value="itemName"/></td>
+							<td><img src="img/item/<s:property value="itemName"/>.png"></td>
+							<td><s:property value="itemGenre"/></td>
 							<td><s:property value="itemPrice"/><span>円</span></td>
 							<td><s:property value="itemStock"/><span>個</span></td>
 							<td><s:property value="insertDate"/></td>
@@ -115,16 +87,11 @@
 								</s:form>
 							</td>
 							<td>
-								<s:form action="ItemListAction" name="deleteItem" onsubmit="return deleteCheck();">
-<!-- 								<form name="deleteItem"> -->
+								<s:form action="ItemListAction" name="deleteItem" indexId="idx">
 									<input type="hidden" name="id" value="<s:property value="id"/>"/>
-									<input type="hidden" name="itemName" value="<s:property value="itemName"/>"/>
-<%-- 									<input type="hidden" name="itemPrice" value="<s:property value="itemPrice"/>"/> --%>
-<%-- 									<input type="hidden" name="itemStock" value="<s:property value="itemStock"/>"/> --%>
+									<input type="hidden" name="item" id="id_item" value="<s:property value="itemName"/>"/>
 									<input type="hidden" name="deleteFlg" value="1">
-									<input type="submit" value="削除" >
-<%-- 									<s:submit value="削除"/> --%>
-<!-- 								</form> -->
+									<input type="submit" value="削除" onClick="return deleteCheck();">
 								</s:form>
 							</td>
 						</tr>
@@ -142,7 +109,5 @@
 		<div id="pr">
 		</div>
 	</div>
-
-
 </body>
 </html>

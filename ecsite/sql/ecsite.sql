@@ -21,6 +21,7 @@ drop table if exists item_info_transaction;
 create table item_info_transaction(
 id int not null primary key auto_increment,
 item_name varchar(30),
+item_genre varchar(30),
 item_price int,
 item_stock int,
 insert_date datetime,
@@ -39,6 +40,17 @@ pay varchar(30),
 insert_date datetime,
 delete_date datetime
 );
+
+drop table if exists genre_transaction;
+
+create table genre_transaction(
+id int not null primary key auto_increment,
+genre_id int unique,
+genre_name varchar(20) unique,
+insert_date datetime,
+update_date datetime
+);
+
 
 insert into item_info_transaction(item_name, item_price, item_stock) values("ノートBook", 100, 50);
 insert into login_user_transaction(login_id, login_pass, user_name) values("internous", "internous01", "test");

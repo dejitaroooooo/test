@@ -2,6 +2,7 @@ package com.internousdev.ecsite.dto;
 
 public class MyPageDTO {
 	public String itemName;
+	public String itemGenre;
 	public String totalPrice;
 	public String totalCount;
 	public String payment;
@@ -50,5 +51,11 @@ public class MyPageDTO {
 	}
 	public void setInsert_date(String insert_date) {
 		this.insert_date = insert_date;
+	}
+	public String getItemGenre() {
+		return itemGenre;
+	}
+	public void setItemGenre(String itemGenre) {
+		this.itemGenre = itemGenre;
 	}
 }

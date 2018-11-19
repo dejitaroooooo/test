@@ -12,61 +12,89 @@
 <meta name="keywords" content=""/>
 <title>Home画面</title>
 
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+
 <style type="text/css">
-	body{
-		margin:0;
-		padding:0;
-		line-height:1.6;
-		letter-spacing:1px;
-		font-family:Verdana, Helvetica, sans-serif;
-		font-size:12px;
-		color:#333;
-		background:#fff;
-	}
-	table{
-		text-align:center;
-		margin:0 auto;
-	}
-/* 	ecsite LAYOUT */
-	#top{
-		width:780px;
-		margin:30px auto;
-		border:1px solid #333;
-	}
-	#header{
-		width:100%;
-		height:80px;
-		background-color:black;
-	}
-	#main{
-		width:100%;
-		height:500px;
-		text-align:center;
-	}
-	#footer{
-		width:100%;
-		height:80px;
-		background-color:black;
-		clear:both;
-	}
-	#text-center{
-		display:inline-block;
-		text-align:center;
-	}
-	</style>
+#content{;
+ 	text-align:center;
+}
+
+#left-menue{
+	float:left;
+	background-color:yellowgreen;
+	padding: 5px;
+	border-radius:10px;
+	display:inline;
+}
+#left-menue ul{
+/* 	list-style:none; */
+}
+#left-menue ul li{
+}
+#slide{
+/*  	float:right; */
+	display:inline;
+}
+#slide img{
+	height:10px;
+	width:auto;
+}
+#right-content{
+/* 	float:right; */
+}
+
+</style>
+
+<!-- スライド関係 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$('#slide').bxSlider({
+		auto:true,
+		mode:'horizontal',
+		speed:2000,
+		pause:5000,
+		slideWidth:100});
+	});
+</script>
+
+
 </head>
 <body>
-	<div id="header">
-		<div id="pr">
-		</div>
-	</div>
+
+	<jsp:include page="header.jsp"/>
+
 	<div id="main">
 		<div id="top">
 			<p>Home</p>
 		</div>
+
+		<div id="content">
+			<div id="left-menue">
+				<h3>ジャンルから探す</h3>
+				<ul>
+					<li><b><a href='<s:url action="HomeAction?selectedGenre=文房具"/>'>文房具</a></b></li>
+					<li><b><a href='<s:url action="HomeAction?selectedGenre=家具"/>'>家具</a></b></li>
+					<li><b><a href='<s:url action="HomeAction?selectedGenre=家電"/>'>家電</a></b></li>
+					<li><b><a href='<s:url action="HomeAction?selectedGenre=食材"/>'>食材</a></b></li>
+				</ul>
+			</div>
+			<div id="right-content">
+<!-- 				<div id="slide"> -->
+<!-- 					<div><img src="img/jQuery_image1.jpg"></div> -->
+<!-- 					<div><img src="img/jQuery_image2.jpg"></div> -->
+<!-- 					<div><img src="img/jQuery_image3.jpg"></div> -->
+<!-- 					<div><img src="img/jQuery_image4.jpg"></div> -->
+<!-- 					<div><img src="img/jQuery_image5.jpg"></div> -->
+<!-- 				</div> -->
+			</div>
+		</div>
+
 		<div id="text-center">
 			<s:form action="HomeAction">
-				<s:submit value="商品購入"/>
+				<s:submit value="商品購入" id="onmouse" />
 			</s:form>
 			<s:if test="#session.login_user_id != null">
 				<p>ログアウトする場合は<a href='<s:url action="LogoutAction"/>'>こちら</a></p>
@@ -74,10 +102,9 @@
 			<p>管理者用ページは<a href='<s:url action="AdminAction"/>'>こちら</a></p>
 		</div>
 	</div>
-	<div id="footer">
-		<div id="pr">
-		</div>
-	</div>
+
+	<jsp:include page="footer.jsp"/>
+
 </body>
 </html>
 

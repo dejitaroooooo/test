@@ -13,5 +13,10 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="C:/Users/internousdev.103163804/Desktop/workspace/workspace-oode/test/ecsite/WebContent/WEB-INF/lib/poi-4.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/internousdev.103163804/Desktop/workspace/workspace-oode/test/ecsite/WebContent/WEB-INF/lib/poi-ooxml-4.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/internousdev.103163804/Desktop/workspace/workspace-oode/test/ecsite/WebContent/WEB-INF/lib/poi-ooxml-schemas-4.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/internousdev.103163804/Desktop/workspace/workspace-oode/test/ecsite/WebContent/WEB-INF/lib/xmlbeans-3.0.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/poi-4.0.0.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

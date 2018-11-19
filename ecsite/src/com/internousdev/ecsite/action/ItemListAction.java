@@ -113,6 +113,4 @@ public class ItemListAction extends ActionSupport implements SessionAware{
 	public void setDeleteFlg(String deleteFlg) {
 		this.deleteFlg = deleteFlg;
 	}
-
-
 }

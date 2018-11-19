@@ -15,6 +15,8 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	private LoginDAO loginDAO = new LoginDAO();
 	private LoginDTO loginDTO = new LoginDTO();
 //	private BuyItemDAO buyItemDAO = new BuyItemDAO();
+	private String message;
+	private int checkFlg;
 
 	public String execute(){
 		String result = ERROR;
@@ -31,6 +33,9 @@ public class LoginAction extends ActionSupport implements SessionAware{
 //			session.put("buyItem_price",buyItemDTO.getItemPrice());
 			return result;
 		}
+
+		setMessage("IDまたはパスワードに誤りがあります。");
+
 		return result;
 	}
 
@@ -51,6 +56,22 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	}
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public int getCheckFlg() {
+		return checkFlg;
+	}
+
+	public void setCheckFlg(int checkFlg) {
+		this.checkFlg = checkFlg;
 	}
 
 }

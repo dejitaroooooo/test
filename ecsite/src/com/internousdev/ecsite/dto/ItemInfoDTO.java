@@ -3,6 +3,7 @@ package com.internousdev.ecsite.dto;
 public class ItemInfoDTO {
 	public String id;
 	public String itemName;
+	public String itemGenre;
 	public String itemPrice;
 	public String itemStock;
 	public String insertDate;
@@ -37,6 +38,12 @@ public class ItemInfoDTO {
 	}
 	public void setInsertDate(String insertDate) {
 		this.insertDate = insertDate;
+	}
+	public String getItemGenre() {
+		return itemGenre;
+	}
+	public void setItemGenre(String itemGenre) {
+		this.itemGenre = itemGenre;
 	}
 
 }

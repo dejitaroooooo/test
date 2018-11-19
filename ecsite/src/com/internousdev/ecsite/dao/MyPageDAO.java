@@ -5,13 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Map;
 
 import com.internousdev.ecsite.dto.MyPageDTO;
 import com.internousdev.ecsite.util.DBConnector;
 
 public class MyPageDAO {
-	public Map<String, Object> session;
 	private DBConnector dbConnector = new DBConnector();
 	private Connection connection = dbConnector.getConnection();
 
@@ -95,13 +93,5 @@ public class MyPageDAO {
 			connection.close();
 		}
 		return result;
-	}
-
-	public Map<String, Object> getSession() {
-		return session;
-	}
-
-	public void setSession(Map<String, Object> session) {
-		this.session = session;
 	}
 }

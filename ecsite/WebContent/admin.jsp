@@ -12,62 +12,19 @@
 <meta name="keywords" content=""/>
 <title>Admin画面</title>
 
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<link rel="stylesheet" type="text/css" href="./css/style-admin.css">
+
 <style type="text/css">
-	body{
-		margin:0;
-		padding:0;
-		line-height:1.6;
-		letter-spacing:1px;
-		font-family:Verdana, Helvetica, sans-serif;
-		font-size:12px;
-		color:#333;
-		background:#fff;
-	}
-	table{
-		text-align:center;
-		margin:0 auto;
-	}
-/* 	ecsite LAYOUT */
-	#top{
-		width:780px;
-		margin:30px auto;
-		border:1px solid #333;
-	}
-	#header{
-		width:100%;
-		height:80px;
-		background-color:black;
-	}
-	#main{
-		width:100%;
-		height:500px;
-		text-align:center;
-	}
-
-	#content{
-		margin: 5px;
-		float:left;
-		border: 1px solid black;
-	}
-	#user{
-		margin: 5px;
-		float:left;
-		border: 1px solid black;
-	}
-	#under{
-		clear:left;
-	}
-
-	#footer{
-		width:100%;
-		height:80px;
-		background-color:black;
-		clear:both;
-	}
-	#text-center{
+	#content-box{
 		display:inline-block;
 		text-align:center;
 	}
+	#content{
+		border:1px solid black;
+		display:inline-block;
+	}
+
 </style>
 
 </head>
@@ -82,7 +39,7 @@
 		<div id="top">
 			<p>Admin</p>
 		</div>
-		<div id="text-center">
+		<div id="content-box">
 			<!-- 商品関係 -->
 			<div id="content">
 				<p>商品</p>
@@ -93,11 +50,11 @@
 					<s:submit value="一覧"/>
 				</s:form>
 				<s:form action="ItemEditAction">
-					<s:submit value="編集"/>
+					<s:submit value="編集(工事中)"/>
 				</s:form>
 			</div>
 			<!-- ユーザ -->
-			<div id="user">
+			<div id="content">
 				<p>ユーザ</p>
 				<s:form action="UserCreateAction">
 					<s:submit value="新規登録"/>
@@ -106,11 +63,19 @@
 					<s:submit value="一覧"/>
 				</s:form>
 			</div>
-			<div id="history">
-				<s:form action="BuyItemListAction">
+			<div id="content">
+				<p>購入状況</p>
+				<s:form action="UserBuyItemListAction">
 					<s:submit value="一覧"/>
 				</s:form>
 			</div>
+			<div id="content">
+				<p>分析</p>
+				<s:form action="AnalysisAction">
+					<s:submit value="分析"/>
+				</s:form>
+			</div>
+
 			<div id="under">
 				<p>Homeへ戻る場合は<a href='<s:url action="GoHomeAction"/>'>こちら</a></p>
 			</div>
