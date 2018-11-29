@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -35,7 +35,7 @@
 							<label>ログインID：</label>
 						</td>
 						<td>
-							<input type="text" name="loginUserId" value=""/>
+							<input type="text" name="loginUserId" value="" required/>
 						</td>
 					</tr>
 					<tr>
@@ -43,7 +43,7 @@
 							<label>ログインPASS：</label>
 						</td>
 						<td>
-							<input type="password" name="loginPassword" value=""/>
+							<input type="password" name="loginPassword" value="" required/>
 						</td>
 					</tr>
 					<tr>
@@ -51,7 +51,7 @@
 							<label>ユーザ名：</label>
 						</td>
 						<td>
-							<input type="text" name="userName" value=""/>
+							<input type="text" name="userName" value="" required/>
 						</td>
 					</tr>
 					<s:submit value="登録"/>

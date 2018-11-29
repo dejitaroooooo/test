@@ -49,9 +49,6 @@
 				<s:form action="ItemListAction">
 					<s:submit value="一覧"/>
 				</s:form>
-				<s:form action="ItemEditAction">
-					<s:submit value="編集(工事中)"/>
-				</s:form>
 			</div>
 			<!-- ユーザ -->
 			<div id="content">
@@ -67,12 +64,6 @@
 				<p>購入状況</p>
 				<s:form action="UserBuyItemListAction">
 					<s:submit value="一覧"/>
-				</s:form>
-			</div>
-			<div id="content">
-				<p>分析</p>
-				<s:form action="AnalysisAction">
-					<s:submit value="分析"/>
 				</s:form>
 			</div>
 

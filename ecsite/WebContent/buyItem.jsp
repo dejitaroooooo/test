@@ -69,7 +69,7 @@
 
 			<h3>商品リスト(ジャンル：<s:property value="selectedGenre"/>)</h3>
 
-			<s:iterator value="session.itemList">
+			<s:iterator value="session.itemInfoDtoList">
 				<s:form action="BuyItemAction">
 					<input type="hidden" name="id" value="<s:property value="id"/>">
 <%-- 					<s:if test='itemGenre == "<s:property value="selectedGenre"/>"'> --%>
@@ -137,6 +137,17 @@
 				<p>前画面に戻る場合は<a href='<s:url action="GoHomeAction"/>'>こちら</a></p>
 				<p>マイページは<a href='<s:url action="MyPageAction"/>'>こちら</a></p>
 			</div>
+		</div>
+
+		<div id="pager">
+			<s:iterator begin="1" end="#session.totalPageSize" status="pageNo">
+				<s:if test="#session.currentPageNo == #pageNo.count">
+					<s:property value="%{#pageNo.count}"/>
+				</s:if>
+				<s:else>
+					<a href="<s:url action='HomeAction'><s:param name='pageNo' value='%{#pageNo.count}'/></s:url> ">	<s:property value="%{#pageNo.count}"/></a>
+				</s:else>
+			</s:iterator>
 		</div>
 
 		<div id = "push">

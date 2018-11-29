@@ -15,16 +15,10 @@ public class BuyItemAction extends ActionSupport implements SessionAware{
 	private int count;
 	private int itemStock;
 	private String pay;
-//	private ItemListDAO itemInfoDAO = new ItemListDAO();
-//	private ArrayList<ItemInfoDTO> itemList = new ArrayList<ItemInfoDTO>();
-
 
 	public String execute() throws SQLException{
 		String result = SUCCESS;
 
-//		System.out.println(itemName);
-//		System.out.println(itemPrice);
-//		itemList = itemInfoDAO.getItemInfo();
 		session.put("buyItem_id", id);
 		session.put("buyItem_name", itemName);
 		session.put("buy_item_price", itemPrice);
@@ -36,14 +30,6 @@ public class BuyItemAction extends ActionSupport implements SessionAware{
 
 		session.put("total_price", count * itemPrice);
 
-		/*
-		System.out.println(itemList.size());
-		for(int i=0; i<itemList.size();i++){
-			System.out.println("商品名：" + itemList.get(i).getItemName());
-			System.out.println("価格：" + itemList.get(i).getItemPrice());
-			System.out.println("ストック数：" + itemList.get(i).getItemStock());
-		}
-		*/
 		String payment;
 		if(pay.equals("1")){
 			payment="現金払い";
