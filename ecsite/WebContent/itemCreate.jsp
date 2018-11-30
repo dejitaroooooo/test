@@ -13,72 +13,56 @@
 <title>ItemCreate画面</title>
 
 <link rel="stylesheet" type="text/css" href="./css/style.css">
-<link rel="stylesheet" type="text/css" href="./css/style-admin.css">
-
-<script>
-// import = "com.internousdev.ecsite.dto.ItemInfoDTO";
-// ArrayList<ItemInfoDTO> registrationItem = new ArrayList<ItemInfoDTO>();
-// ItemInfoDTO dto = new ItemInfoDTO();
-</script>
-
 
 </head>
 <body>
 	<!-- ヘッダー -->
-	<div id="header">
-		<div id="pr">
-		</div>
-	</div>
+	<jsp:include page="headerAdmin.jsp"/>
+
 	<!-- メイン -->
 	<div id="main">
+
 		<!-- トップ -->
 		<div id="top">
 			<p>ItemCreate</p>
 		</div>
-		<s:if test="errorMassage !=">
-			<s:property value="errorMassage" escape="false"/>
-		</s:if>
 
+			<!-- エラーメッセージの表示 -->
+			<s:if test="errorMessage != ''">
+				<h3><font color = "red"><s:property value="errorMessage" escape="false"/></font></h3>
+			</s:if>
 
-		<!-- 入力フォーム -->
-		<table>
+		<!-- コンテンツ -->
+		<div id="contents">
+			<!-- 入力フォーム -->
 			<s:form action="ItemCreateConfirmAction">
-				<tr>
-					<th>商品名</th>
-					<th>価格</th>
-					<th>ストック数</th>
-				</tr>
-				<tr>
-
-					<td><input type="text" name="itemName" value=""/></td>
-					<td><input type="text" name="itemPrice" value=""/></td>
-					<td><input type="text" name="itemStock" value=""/></td>
-
-<%@ page import = "com.internousdev.ecsite.dto.ItemInfoDTO"%>
-<%@ page import = "java.util.ArrayList" %>
-<%
-ArrayList<ItemInfoDTO> registrationItem = new ArrayList<ItemInfoDTO>();
-ItemInfoDTO dto = new ItemInfoDTO();
-/*dto.setItemName(itemName);*/
-%>
-
-
-
-				</tr>
-				<s:submit value="登録"/>
+				<table>
+					<tr>
+						<td>商品名</td>
+						<td><input type="text" name="itemName" value=""/></td>
+					</tr>
+					<tr>
+						<td>価格</td>
+						<td><input type="text" name="itemPrice" value=""/></td>
+					</tr>
+					<tr>
+						<td>ストック数</td>
+						<td><input type="text" name="itemStock" value=""/></td>
+					</tr>
+					<s:submit value="登録"/>
+				</table>
 			</s:form>
-		</table>
-		<div>
+		</div>
+
+		<!-- ボトム -->
+		<div id ="bottom">
 			<p><a href='<s:url action="ItemCreateFileReadAction"/>'>ファイルを読み込む</a></p>
-			<span>前画面に戻る場合は</span>
-			<a href='<s:url action="AdminAction"/>'>こちら</a>
 		</div>
+
 	</div>
+
 	<!-- フッター -->
-	<div id = "footer">
-		<div id="pr">
-		</div>
-	</div>
+	<jsp:include page="footer.jsp"/>
 
 </body>
 </html>

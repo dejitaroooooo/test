@@ -13,58 +13,47 @@
 <title>UserCreateConfirm画面</title>
 
 <link rel="stylesheet" type="text/css" href="./css/style.css">
-
+<script type="text/javascript" src="javascript/script.js">
+</script>
 </head>
 <body>
-	<div id="header">
-		<div id="pr">
-		</div>
-	</div>
+
+	<jsp:include page="header.jsp"/>
+
 	<div id="main">
+
 		<div id="top">
 			<p>UserCreateConfirm</p>
 		</div>
-		<div>
-			<h3>登録する内容は以下でよろしいですか。</h3>
+
+		<div id="contents">
+			<h3>以下の内容で登録します<br>よろしいですか？</h3>
 			<table>
-				<s:form action="UserCreateCompleteAction">
+				<s:form action="UserCreateCompleteAction" name="s">
 					<tr id="box">
-						<td>
-							<label>ログインID：</label>
-						</td>
-						<td>
-							<s:property value="loginUserId" escape="false"/>
-						</td>
+						<td><label>ログインID：</label></td>
+						<td><s:property value="loginUserId" escape="false"/></td>
 					</tr>
 					<tr id="box">
-						<td>
-							<label>ログインPASS：</label>
-						</td>
-						<td>
-							<s:property value="loginPassword" escape="false"/>
-						</td>
+						<td><label>ログインPASS：</label></td>
+						<td><s:property value="loginPassword" escape="false"/></td>
 					</tr>
 					<tr id="box">
-						<td>
-							<label>ユーザ名：</label>
-						</td>
-						<td>
-							<s:property value="userName" escape="false"/>
-						</td>
+						<td><label>ユーザ名：</label></td>
+						<td><s:property value="userName" escape="false"/></td>
 					</tr>
 					<tr>
-						<td>
-							<s:submit value="完了"/>
-						</td>
+						<td><input type="button" value="戻る" onclick="submitAction('UserCreateAction')"/><td>
+						<td><input type="button" value="登録" onclick="submitAction('UserCreateCompleteAction')"/><td>
 					</tr>
 				</s:form>
 			</table>
 		</div>
+
 	</div>
-	<div id="footer">
-		<div id="pr">
-		</div>
-	</div>
+
+	<jsp:include page="footer.jsp"/>
+
 </body>
 </html>
 

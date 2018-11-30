@@ -11,11 +11,19 @@
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
 <title>フッター</title>
+
+<style type="text/css">
+#footer{
+	width:100%;
+	height:80px;
+	background-color:lightblue;
+	clear:both;
+}
+</style>
+
 </head>
 <body>
 	<div id="footer">
-		<div id="pr">
-		</div>
 	</div>
 </body>
 </html>

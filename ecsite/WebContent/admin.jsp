@@ -16,7 +16,7 @@
 <link rel="stylesheet" type="text/css" href="./css/style-admin.css">
 
 <style type="text/css">
-	#content-box{
+	#contents{
 		display:inline-block;
 		text-align:center;
 	}
@@ -29,17 +29,19 @@
 
 </head>
 <body>
+
 	<!-- ヘッダー -->
-	<div id="header">
-		<div id="top">
-		</div>
-	</div>
+	<jsp:include page="headerAdmin.jsp"/>
+
 	<!-- メイン -->
 	<div id="main">
+
+		<!-- トップ -->
 		<div id="top">
 			<p>Admin</p>
 		</div>
-		<div id="content-box">
+
+		<div id="contents">
 			<!-- 商品関係 -->
 			<div id="content">
 				<p>商品</p>
@@ -50,7 +52,7 @@
 					<s:submit value="一覧"/>
 				</s:form>
 			</div>
-			<!-- ユーザ -->
+			<!-- ユーザ関係 -->
 			<div id="content">
 				<p>ユーザ</p>
 				<s:form action="UserCreateAction">
@@ -60,6 +62,7 @@
 					<s:submit value="一覧"/>
 				</s:form>
 			</div>
+			<!-- 購入履歴 -->
 			<div id="content">
 				<p>購入状況</p>
 				<s:form action="UserBuyItemListAction">
@@ -67,16 +70,15 @@
 				</s:form>
 			</div>
 
-			<div id="under">
+			<!-- ボトム -->
+			<div id="bottom">
 				<p>Homeへ戻る場合は<a href='<s:url action="GoHomeAction"/>'>こちら</a></p>
 			</div>
 		</div>
 	</div>
 
 	<!-- フッター -->
-	<div id="footer">
-		<div id="pr">
-		</div>
-	</div>
+	<jsp:include page="footer.jsp"/>
+
 </body>
 </html>

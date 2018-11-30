@@ -13,39 +13,25 @@
 
 <link rel="stylesheet" type="text/css" href="./css/style.css">
 
-
 <style type="text/css">
 	#table{
-	display:flex;
-	flex-direction:row;
-	margin:10px;
+		display:flex;
+		flex-direction:row;
 	}
-
-	#content{
-		text-align: center;
-	}
-	#bottom{
+	#pager{
 		clear:both;
-	}
-	img{
-		width: 50px;
-		height:50px;
-		border:1px solid black;
 	}
 
 	</style>
 </head>
 <body>
-	<div id="header">
-		<div id="pr">
-		</div>
-	</div>
+	<jsp:include page="header.jsp"/>
 	<div id="main">
 		<div id="top">
 			<p>BuyItem</p>
 		</div>
-		<div id="content">
-			<s:form action="HomeAction">
+		<div id="contents">
+			<s:form action="BuyItemAction">
 				<table>
 					<tr>
 						<td>
@@ -70,9 +56,8 @@
 			<h3>商品リスト(ジャンル：<s:property value="selectedGenre"/>)</h3>
 
 			<s:iterator value="session.itemInfoDtoList">
-				<s:form action="BuyItemAction">
+				<s:form action="BuyItemConfirmAction">
 					<input type="hidden" name="id" value="<s:property value="id"/>">
-<%-- 					<s:if test='itemGenre == "<s:property value="selectedGenre"/>"'> --%>
 						<table border="1" style="float:left;">
 							<tr>
 								<td>
@@ -105,12 +90,13 @@
 								</td>
 								<td>
 									<select name="count">
-									<%
-									String StringStock = request.getAttribute("itemStock").toString();
-									int stock = Integer.parseInt(StringStock);
-									for(int i=1;i<=stock;i++){%>
-									<option value="<%=i%>"><%=i%></option>
-									<%}%>
+										<%
+										String StringStock = request.getAttribute("itemStock").toString();
+										int stock = Integer.parseInt(StringStock);
+										for(int i=1;i<=stock;i++){%>
+											<option value="<%=i%>"><%=i%></option>
+										<%}
+										%>
 									</select>
 									<input type="hidden" name="itemStock" value="<s:property value="itemStock"/>">
 								</td>
@@ -130,13 +116,8 @@
 								</td>
 							</tr>
 						</table>
-<%-- 					</s:if> --%>
 				</s:form>
 			</s:iterator>
-			<div id= "bottom">
-				<p>前画面に戻る場合は<a href='<s:url action="GoHomeAction"/>'>こちら</a></p>
-				<p>マイページは<a href='<s:url action="MyPageAction"/>'>こちら</a></p>
-			</div>
 		</div>
 
 		<div id="pager">
@@ -145,19 +126,14 @@
 					<s:property value="%{#pageNo.count}"/>
 				</s:if>
 				<s:else>
-					<a href="<s:url action='HomeAction'><s:param name='pageNo' value='%{#pageNo.count}'/></s:url> ">	<s:property value="%{#pageNo.count}"/></a>
+					<a href="<s:url action='BuyItemAction'><s:param name='pageNo' value='%{#pageNo.count}'/></s:url> ">	<s:property value="%{#pageNo.count}"/></a>
 				</s:else>
 			</s:iterator>
 		</div>
 
-		<div id = "push">
-		</div>
+	</div>
 
-	</div>
-	<div id="footer">
-		<div id="pr">
-		</div>
-	</div>
+	<jsp:include page="footer.jsp"/>
 
 </body>
 </html>

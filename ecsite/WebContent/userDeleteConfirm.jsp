@@ -23,28 +23,29 @@
 </script>
 </head>
 <body>
-	<div id="header">
-		<div id="pr">
-		</div>
-	</div>
+
+	<jsp:include page="header.jsp"/>
+
 	<div id="main">
 		<div id="top">
 			<p>UserDeleteConfirm</p>
 		</div>
-		<div>
-			<h3>退会するとID:<s:property value="session.login_user_id"/>に関するデータが全て削除されます。</h3>
+
+		<div id="contents">
+			<h3>退会すると<s:property value="session.login_user_id"/>に関するデータが全て削除されます。</h3>
 			<h3>よろしいですか？</h3>
+
 			<s:form>
 					<tr>
 						<td><input type="button" value="OK" onclick="submitAction('UserDeleteCompleteAction')"/></td>
 						<td><input type="button" value="キャンセル" onclick="submitAction('MyPageAction')"/></td>
 					</tr>
 			</s:form>
+
 		</div>
 	</div>
-	<div id="footer">
-		<div id="pr">
-		</div>
-	</div>
+
+	<jsp:include page="footer.jsp"/>
+
 </body>
 </html>

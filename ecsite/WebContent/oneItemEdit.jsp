@@ -13,59 +13,53 @@
 <title>OneItemEdit画面</title>
 
 <link rel="stylesheet" type="text/css" href="./css/style.css">
-<link rel="stylesheet" type="text/css" href="./css/style-admin.css">
 
 </head>
 <body>
-	<div id="header">
-		<div id="pr">
-		</div>
-	</div>
+
+	<!-- ヘッダー -->
+	<jsp:include page="headerAdmin.jsp"/>
+
+	<!-- メイン -->
 	<div id="main">
+
+		<!-- トップ -->
 		<div id="top">
 			<p>OneItemEdit</p>
 		</div>
-		<div>
+
+		<!-- コンテンツ -->
+		<div id="contents">
+			<!-- 入力フォーム -->
 			<h3>商品情報の編集</h3>
 			<s:form action="OneItemEditCompleteAction">
-			<table>
-				<tr>
-					<td>
-						<label>商品名</label>
-					</td>
-					<td>
-						<s:property value="itemName"/>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<label>価格</label>
-					</td>
-					<td>
-						<input type="text" name="editItemPrice" placeholder="<s:property value="itemPrice"/>">
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<label>ストック数</label>
-					</td>
-					<td>
-						<input type="text" name="editItemStock" placeholder="<s:property value="itemStock"/>">
-					</td>
-				</tr>
-				<s:submit value="変更"/>
-			</table>
+				<table>
+					<tr>
+						<td><label>商品名</label></td>
+						<td><s:property value="itemName"/></td>
+					</tr>
+					<tr>
+						<td><label>価格</label></td>
+						<td><input type="text" name="editItemPrice" placeholder="<s:property value="itemPrice"/>"></td>
+					</tr>
+					<tr>
+						<td><label>ストック数</label></td>
+						<td><input type="text" name="editItemStock" placeholder="<s:property value="itemStock"/>"></td>
+					</tr>
+					<s:submit value="変更"/>
+				</table>
 			</s:form>
-			<div id="text-right">
+
+			<!-- ボトム -->
+			<div id="bottom">
 				<p>やめる場合は<a href='<s:url action="ItemListAction"/>'>こちら</a></p>
 			</div>
-		</div>
-	</div>
-	<div id="footer">
-		<div id="pr">
+
 		</div>
 	</div>
 
+	<!-- フッター -->
+	<jsp:include page="footer.jsp"/>
 
 </body>
 </html>

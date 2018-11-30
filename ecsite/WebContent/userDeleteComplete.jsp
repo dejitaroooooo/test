@@ -16,24 +16,25 @@
 
 </head>
 <body>
-	<div id="header">
-		<div id="pr">
-		</div>
-	</div>
+
+	<jsp:include page="header.jsp"/>
+
 	<div id="main">
+
 		<div id="top">
 			<p>UserDeleteComplete</p>
 		</div>
-		<div>
+
+		<div id="contents">
 			<h3>退会しました。</h3>
 			<s:form action="GoHomeAction">
 				<s:submit value="Homeへ"/>
 			</s:form>
 		</div>
+
 	</div>
-	<div id="footer">
-		<div id="pr">
-		</div>
-	</div>
+
+	<jsp:include page="footer.jsp"/>
+
 </body>
 </html>

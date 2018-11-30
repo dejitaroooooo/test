@@ -13,28 +13,35 @@
 <title>ItemListDeleteComplete画面</title>
 
 <link rel="stylesheet" type="text/css" href="./css/style.css">
-<link rel="stylesheet" type="text/css" href="./css/style-admin.css">
 
 </head>
 <body>
-	<div id="header">
-		<div id="pr">
-		</div>
-	</div>
+
+	<!-- ヘッダー -->
+	<jsp:include page="headerAdmin.jsp"/>
+
+	<!-- メイン -->
 	<div id="main">
+
+		<!-- トップ -->
 		<div id="top">
 			<p>ItemListDeleteComplete画面</p>
 		</div>
-		<div>
+
+		<!-- コンテンツ -->
+		<div id="contents">
 			<h3>合計 <s:property value="ret"/> 件の商品情報を削除しました。</h3>
-			<div id="text-right">
-				<p><a href='<s:url action="AdminAction"/>'>管理者画面TOPへ</a></p>
-			</div>
 		</div>
-	</div>
-	<div id="footer">
-		<div id="pr">
+
+		<!-- ボトム -->
+		<div id="bottom">
+			<p><a href='<s:url action="AdminAction"/>'>管理画面TOPへ</a></p>
 		</div>
+
 	</div>
+
+	<!-- フッター -->
+	<jsp:include page="footer.jsp"/>
+
 </body>
 </html>

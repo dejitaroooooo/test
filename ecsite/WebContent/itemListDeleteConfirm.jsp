@@ -10,31 +10,31 @@
 <meta http-equiv="imagetoolbar" content="no"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <title>itemListDeleteConfirm画面</title>
 
 <link rel="stylesheet" type="text/css" href="./css/style.css">
-<link rel="stylesheet" type="text/css" href="./css/style-admin.css">
-
-<script type="text/javascript">
-	function submitAction(url){
-		$('form').attr('action',url);
-		$('form').submit();
-	}
+<script type="text/javascript" src="javascript/script.js">
 </script>
+
 </head>
 <body>
-	<div id="header">
-		<div id="pr">
-		</div>
-	</div>
+
+	<!-- ヘッダー -->
+	<jsp:include page="headerAdmin.jsp"/>
+
+	<!-- メイン -->
 	<div id="main">
+
+		<!-- トップ -->
 		<div id="top">
 			<p>ItemListDeleteConfirm画面</p>
 		</div>
-		<div>
+
+		<!-- コンテンツ -->
+		<div id="contents">
+
+			<!-- 確認フォーム -->
 			<h3>すべての商品を削除します。よろしいですか？</h3>
-			<h3>（ただし、ユーザが購入している商品は削除されません）</h3>
 			<table>
 				<s:form>
 					<tr>
@@ -43,11 +43,13 @@
 					</tr>
 				</s:form>
 			</table>
+
 		</div>
+
 	</div>
-	<div id="footer">
-		<div id="pr">
-		</div>
-	</div>
+
+	<!-- フッター -->
+	<jsp:include page="footer.jsp"/>
+
 </body>
 </html>

@@ -14,25 +14,27 @@
 <title>UserListDeleteConfirm画面</title>
 
 <link rel="stylesheet" type="text/css" href="./css/style.css">
-<link rel="stylesheet" type="text/css" href="./css/style-admin.css">
 
-<script type="text/javascript">
-	function submitAction(url){
-		$('form').attr('action',url);
-		$('form').submit();
-	}
+<script type="text/javascript" src="javascript/script.js">
 </script>
+
 </head>
 <body>
-	<div id="header">
-		<div id="pr">
-		</div>
-	</div>
+
+	<!-- ヘッダー -->
+	<jsp:include page="headerAdmin.jsp"/>
+
+	<!-- メイン -->
 	<div id="main">
+
+		<!-- トップ -->
 		<div id="top">
 			<p>UserListDeleteConfirm画面</p>
 		</div>
-		<div>
+
+		<!-- コンテンツ -->
+		<div id="contents">
+			<!-- 確認フォーム -->
 			<h3>すべてのユーザを削除します。よろしいですか？</h3>
 			<table>
 				<s:form>
@@ -43,10 +45,11 @@
 				</s:form>
 			</table>
 		</div>
+
 	</div>
-	<div id="footer">
-		<div id="pr">
-		</div>
-	</div>
+
+	<!-- フッター -->
+	<jsp:include page="footer.jsp"/>
+
 </body>
 </html>

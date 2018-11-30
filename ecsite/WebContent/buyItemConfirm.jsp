@@ -19,15 +19,16 @@
 
 </head>
 <body>
-	<div id="header">
-		<div id="pr">
-		</div>
-	</div>
+
+	<jsp:include page="header.jsp"/>
+
 	<div id="main">
 		<div id="top">
 			<p>BuyItemConfirm</p>
 		</div>
-		<div>
+
+		<div id="contents">
+			<p><b>以下の商品を購入します<br>よろしいですか？</b></p>
 			<s:form name="s">
 				<tr>
 					<td>商品名</td>
@@ -47,18 +48,13 @@
 				</tr>
 				<tr>
 					<td><input type="button" value="戻る" onclick="submitAction('HomeAction')"/><td>
-					<td><input type="button" value="完了" onclick="submitAction('BuyItemConfirmAction')"/><td>
+					<td><input type="button" value="購入" onclick="submitAction('BuyItemCompleteAction')"/><td>
 				</tr>
 			</s:form>
 		</div>
-	<div>
-		<p>前画面に戻る場合は<a href='<s:url action="GoHomeAction"/>'>こちら</a></p>
-		<p>マイページは<a href='<s:url action="MyPageAction"/>'>こちら</a></p>
 	</div>
-	</div>
-	<div id="footer">
-		<div id="pr">
-		</div>
-	</div>
+
+	<jsp:include page="footer.jsp"/>
+
 </body>
 </html>

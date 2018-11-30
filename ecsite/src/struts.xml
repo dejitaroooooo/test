@@ -12,19 +12,13 @@
 		<result name="success">home.jsp</result>
 	</action>
 
-	<!-- HomeAction -->
-	<action name="HomeAction" class="com.internousdev.ecsite.action.HomeAction" method="execute">
-		<result name="login">login.jsp</result>
-		<result name="success">buyItem.jsp</result>
-	</action>
-
-		<!-- UserCreateAction -->
+	<!-- UserCreateAction -->
 	<action name="UserCreateAction" class="com.internousdev.ecsite.action.UserCreateAction" method="execute">
 		<result name="success">userCreate.jsp</result>
 		<result name="back">login.jsp</result>
 	</action>
 
-	<!-- UserCreateConfirmAtion -->
+	<!-- UserCreateConfirmAction -->
 	<action name="UserCreateConfirmAction" class="com.internousdev.ecsite.action.UserCreateConfirmAction" method="execute">
 		<result name="success">userCreateConfirm.jsp</result>
 		<result name="error">userCreate.jsp</result>
@@ -43,14 +37,18 @@
 
 	<!-- BuyItemAction -->
 	<action name="BuyItemAction" class="com.internousdev.ecsite.action.BuyItemAction" method="execute">
-		<result name="success">buyItemConfirm.jsp</result>
-		<result name="error">buyItem.jsp</result>
+		<result name="login">login.jsp</result>
+		<result name="success">buyItem.jsp</result>
 	</action>
 
 	<!-- BuyItemConfirmAction -->
 	<action name="BuyItemConfirmAction" class="com.internousdev.ecsite.action.BuyItemConfirmAction" method="execute">
+		<result name="success">buyItemConfirm.jsp</result>
+	</action>
+
+	<!-- BuyItemCompleteAction -->
+	<action name="BuyItemCompleteAction" class="com.internousdev.ecsite.action.BuyItemCompleteAction" method="execute">
 		<result name="success">buyItemComplete.jsp</result>
-		<result name="back">buyItem.jsp</result>
 	</action>
 
 	<!-- MyPageAction -->
@@ -124,11 +122,6 @@
 	<action name="OneItemEditCompleteAction" class="com.internousdev.ecsite.action.OneItemEditCompleteAction" method="execute">
 		<result name="success">itemList.jsp</result>
 		<result name="error">oneItemEdit.jsp</result>
-	</action>
-
-	<!-- OneItemDeleteAction -->
-	<action name="OneItemDeleteAction" class="com.internousdev.ecsite.action.OneItemDeleteAction" method="execute">
-		<result name="success">itemList.jsp</result>
 	</action>
 
 	<!-- UserDeleteAction -->

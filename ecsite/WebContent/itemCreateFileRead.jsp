@@ -13,31 +13,29 @@
 <title>ItemCreateFileRead画面</title>
 
 <link rel="stylesheet" type="text/css" href="./css/style.css">
-<link rel="stylesheet" type="text/css" href="./css/style-admin.css">
 
 <script type="text/javascript" src="javascript/script.js">
 </script>
+
 </head>
 <body>
-	<div id="header">
-		<div id="pr">
-		</div>
-	</div>
+	<!-- ヘッダー -->
+	<jsp:include page="headerAdmin.jsp"/>
 	<div id="main">
+
+		<!-- トップ -->
 		<div id="top">
 			<h3>ItemCreateFileRead</h3>
 		</div>
-		<div id="content">
-			<p>以下の商品を登録します</p>
-			<p>読み込むファイル：</p>
-			<ul>
-				<li><s:property value="filename"/></li>
-			</ul>
-			<p>よろしいですか？</p>
 
+		<!-- コンテンツ -->
+		<div id="contents">
 
-			<s:form name="s">
-<!-- 				<input type="hidden" name="excelList" value="itemList"/> -->
+			<!-- 確認フォーム -->
+			<h3>以下の商品を登録します<br>よろしいですか？</h3>
+			<p>読み込むファイル：<s:property value="filename"/></p>
+			<p>(ファイルパス：WebContent/file/ItemList.xlsx)</p>
+			<s:form action="ItemCreateFileReadCompleteAction">
 				<table>
 					<tr>
 						<td><input type="button" value="はい" onclick="submitAction('ItemCreateFileReadCompleteAction')"/></td>
@@ -45,6 +43,8 @@
 					</tr>
 				</table>
 			</s:form>
+
+			<!-- 商品リスト -->
 			<table border="1">
 				<tr>
 					<th>商品名</th>
@@ -53,22 +53,21 @@
 					<th>ストック数</th>
 				</tr>
 				<s:iterator value="itemList">
-				<tr>
-					<td><s:property value="itemName"/></td>
-					<td><s:property value="genre"/></td>
-					<td><s:property value="price"/><span>円</span></td>
-					<td><s:property value="stock"/><span>個</span></td>
-				</tr>
+					<tr>
+						<td><s:property value="itemName"/></td>
+						<td><s:property value="genre"/></td>
+						<td><s:property value="price"/><span>円</span></td>
+						<td><s:property value="stock"/><span>個</span></td>
+					</tr>
 				</s:iterator>
 			</table>
 		</div>
-		<div>
-		</div>
+
 	</div>
-	<div id="footer">
-		<div id="pr">
-		</div>
-	</div>
+
+	<!-- フッター -->
+	<jsp:include page="footer.jsp"/>
+
 </body>
 
 </html>

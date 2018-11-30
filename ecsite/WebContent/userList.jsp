@@ -12,21 +12,26 @@
 <meta name="keywords" content=""/>
 <title>UserList画面</title>
 
-
 <link rel="stylesheet" type="text/css" href="./css/style.css">
-<link rel="stylesheet" type="text/css" href="./css/style-admin.css">
 
 </head>
 <body>
-	<div id="header">
-		<div id="pr">
-		</div>
-	</div>
+
+	<!-- ヘッダー -->
+	<jsp:include page="headerAdmin.jsp"/>
+
+	<!-- メイン -->
 	<div id="main">
+
+		<!-- トップ -->
 		<div id="top">
 			<p>UserList</p>
 		</div>
-		<div>
+
+		<!-- コンテンツ -->
+		<div id="contents">
+
+			<!-- ユーザリスト -->
 			<h3>ユーザ一覧</h3>
 			<table border="1">
 				<tr>
@@ -44,17 +49,20 @@
 					</tr>
 				</s:iterator>
 			</table>
+			<!-- ユーザ全削除 -->
 			<s:form action="UserListDeleteConfirmAction">
 				<s:submit value="削除"/>
 			</s:form>
-			<div id="text-right">
-				<p>管理画面TOPへ戻る場合は<a href='<s:url action="AdminAction"/>'>こちら</a></p>
-			</div>
 		</div>
-	</div>
-	<div id="footer">
-		<div id="pr">
+
+		<!--ボトム -->
+		<div id="bottom">
 		</div>
+
 	</div>
+
+	<!-- フッター -->
+	<jsp:include page="footer.jsp"/>
+
 </body>
 </html>

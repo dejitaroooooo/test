@@ -13,31 +13,39 @@
 <title>ItemCreateFileReadComplete画面</title>
 
 <link rel="stylesheet" type="text/css" href="./css/style.css">
-<link rel="stylesheet" type="text/css" href="./css/style-admin.css">
 
 </head>
 <body>
-	<div id="header">
-		<div id="pr">
-		</div>
-	</div>
+
+	<!-- ヘッダー -->
+	<jsp:include page="headerAdmin.jsp"/>
+
+	<!-- メイン -->
 	<div id="main">
+
+		<!-- トップ -->
 		<div id="top">
 			<p>ItemCreateFileReadComplete</p>
 		</div>
-		<div>
+
+		<!-- コンテンツ -->
+		<div id="contents">
 			<p>商品リストに追加しました。</p>
-			<s:form action = "AdminAction">
-			<s:submit value="管理画面TOPへ"/>
-			</s:form>
+		<!-- ボトム -->
+		<div id="bottom">
+			<p><a href='<s:url action="AdminAction"/>'>管理画面TOPへ</a></p>
 		</div>
-		<div>
-			<p><a href='<s:url action="ItemListAction"/>'>商品リスト</a></p>
 		</div>
+
+		<!-- ボトム -->
+		<div id="bottom">
+			商品リストの確認は<a href='<s:url action="ItemListAction"/>'>こちら</a>
+		</div>
+
 	</div>
-	<div id="footer">
-		<div id="pr">
-		</div>
-	</div>
+
+	<!-- フッター -->
+	<jsp:include page="footer.jsp"/>
+
 </body>
 </html>

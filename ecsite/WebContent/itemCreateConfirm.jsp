@@ -13,68 +13,54 @@
 <title>ItemCreateConfirm画面</title>
 
 <link rel="stylesheet" type="text/css" href="./css/style.css">
-<link rel="stylesheet" type="text/css" href="./css/style-admin.css">
+<script type="text/javascript" src="javascript/script.js">
+</script>
 
 </head>
 <body>
 	<!-- ヘッダー -->
-	<div id="header">
-		<div id="pr">
-		</div>
-	</div>
+	<jsp:include page="headerAdmin.jsp"/>
+
 	<!-- メイン -->
 	<div id="main">
+
+		<!-- トップ -->
 		<div id="top">
 			<p>ItemCreateConfirm</p>
 		</div>
-		<div>
-			<h3>登録する内容は以下でよろしいですか？</h3>
+
+		<!-- コンテンツ -->
+		<div id="contents">
+			<h3>以下の内容で登録登録します。<br>よろしいですか？</h3>
 			<table>
+				<!-- 確認フォーム -->
 				<s:form action="ItemCreateCompleteAction">
-					<tr id="box">
-						<td>
-							<label>商品名：</label>
-						</td>
-						<td>
-							<s:property value="itemName" escape="false"/>
-						</td>
-					</tr>
-					<tr id="box">
-						<td>
-							<label>価格：</label>
-						</td>
-						<td>
-							<s:property value="itemPrice" escape="false"/>
-						</td>
-						<td>
-							<label>円</label>
-						</td>
-					</tr>
-					<tr id="box">
-						<td>
-							<label>ストック数：</label>
-						</td>
-						<td>
-							<s:property value="itemStock" escape="false"/>
-						</td>
-						<td>
-							<label>個</label>
-						</td>
+					<tr>
+						<td><label>商品名：</label></td>
+						<td><s:property value="itemName" escape="false"/></td>
 					</tr>
 					<tr>
-						<td>
-							<s:submit value="完了"/>
-						</td>
+						<td><label>価格：</label></td>
+						<td><s:property value="itemPrice" escape="false"/></td>
+						<td><label>円</label></td>
+					</tr>
+					<tr>
+						<td><label>ストック数：</label></td>
+						<td><s:property value="itemStock" escape="false"/></td>
+						<td><label>個</label></td>
+					</tr>
+					<tr>
+						<td><input type="button" value="戻る" onclick="submitAction('ItemCreateAction')"/><td>
+						<td><input type="button" value="登録" onclick="submitAction('ItemCreateCompleteAction')"/><td>
 					</tr>
 				</s:form>
 			</table>
 		</div>
+
 	</div>
+
 	<!-- フッター -->
-	<div id="footer">
-		<div id="pr">
-		</div>
-	</div>
+	<jsp:include page="footer.jsp"/>
 
 </body>
 </html>

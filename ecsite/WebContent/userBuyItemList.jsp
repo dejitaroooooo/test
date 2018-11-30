@@ -13,12 +13,10 @@
 <title>UserBuyItemList画面</title>
 
 <link rel="stylesheet" type="text/css" href="./css/style.css">
-<link rel="stylesheet" type="text/css" href="./css/style-admin.css">
 
 <script type="text/javascript">
 	function deleteCheck(){
 		if(confirm("購入履歴を削除します。\nよろしいですか？")){
-			alert("削除します");
 	    	return true;
 	    }
 	    else {
@@ -28,17 +26,23 @@
 </script>
 </head>
 <body>
-	<div id="header">
-		<div id="pr">
-		</div>
-	</div>
+
+	<!-- ヘッダー -->
+	<jsp:include page="headerAdmin.jsp"/>
+
+	<!-- メイン -->
 	<div id="main">
+
+		<!-- トップ -->
 		<div id="top">
 			<p>UserBuyItemList</p>
 		</div>
-		<div>
+
+		<!-- コンテンツ -->
+		<div id="contents">
 			<h3>購入履歴一覧</h3>
 
+			<!-- ソート用フォーム -->
 			<s:form action="UserBuyItemListAction">
 				<div id="order">
 					<select name="order_column">
@@ -54,6 +58,8 @@
 					<s:submit value="並び替え"/>
 				</div>
 			</s:form>
+
+			<!-- 購入履歴リスト -->
 			<table border="1">
 				<tr>
 					<th>商品名</th>
@@ -76,20 +82,23 @@
 					</tr>
 				</s:iterator>
 			</table>
+
+			<!-- 購入履歴全削除ボタン -->
 			<s:form action="UserBuyItemListAction" name="deleteItem" onsubmit="return deleteCheck();">
 				<input type="hidden" name="deleteFlg" value="1">
 				<s:submit value="削除"/>
 			</s:form>
-			<div id="text-right">
-				<p>管理画面TOPへ戻る場合は<a href='<s:url action="AdminAction"/>'>こちら</a></p>
-			</div>
+
 		</div>
-	</div>
-	<div id="push">
-	</div>
-	<div id="footer">
-		<div id="pr">
+
+		<!-- ボトム -->
+		<div id="bottom">
 		</div>
+
 	</div>
+
+	<!-- フッター -->
+	<jsp:include page="footer.jsp"/>
+
 </body>
 </html>

@@ -13,43 +13,37 @@
 <title>ItemList画面</title>
 
 <link rel="stylesheet" type="text/css" href="./css/style.css">
-<link rel="stylesheet" type="text/css" href="./css/style-admin.css">
-
-<style type="text/css">
-
-img{
-	height:20px;
-	width:auto;
-}
-
-</style>
 
 <script type="text/javascript">
-	function deleteCheck(itemName){
-// 		https://www.ipentec.com/document/javascript-get-textbox-value
-<%-- var hoge = '<%=request.getAttribute("item")%>'; --%>
-var hoge = document.forms.deleteItem.item.value;
-
-		if(confirm("[" + hoge + "]を削除します。\nよろしいですか？")){
-			alert("削除します");
-	    	return true;
-	    }
-	    else {
-	    	return false;
-	    }
+function deleteCheck(itemName){
+	var hoge = document.forms.deleteItem.item.value;
+	if(confirm("削除します。"+<br>+"よろしいですか？")){
+		alert("");
+		return true;
 	}
+    else {
+	   	return false;
+    }
+}
 </script>
 </head>
 <body>
-	<div id="header">
-		<div id="pr">
-		</div>
-	</div>
+
+	<!-- ヘッダー -->
+	<jsp:include page="headerAdmin.jsp"/>
+
+	<!-- メイン -->
 	<div id="main">
+
+		<!-- トップ -->
 		<div id="top">
 			<p>ItemList</p>
 		</div>
-		<div>
+
+		<!-- コンテンツ -->
+		<div id="contents">
+
+			<!-- メッセージ表示 -->
 			<s:if test="ret == -1">
 				<h3><font color="red"><s:property value="message"/></font></h3>
 			</s:if>
@@ -57,6 +51,7 @@ var hoge = document.forms.deleteItem.item.value;
 				<h3><s:property value="message"/></h3>
 			</s:elseif>
 
+			<!-- 商品リスト -->
 			<h3>商品一覧</h3>
 				<table border="1">
 					<tr>
@@ -78,6 +73,7 @@ var hoge = document.forms.deleteItem.item.value;
 							<td><s:property value="itemStock"/><span>個</span></td>
 							<td><s:property value="insertDate"/></td>
 							<td>
+								<!-- 商品情報の編集画面へ -->
 								<s:form action="OneItemEditAction">
 									<input type="hidden" name="id" value="<s:property value="id"/>"/>
 									<input type="hidden" name="itemName" value="<s:property value="itemName"/>"/>
@@ -87,6 +83,7 @@ var hoge = document.forms.deleteItem.item.value;
 								</s:form>
 							</td>
 							<td>
+								<!-- 商品情報の削除 -->
 								<s:form action="ItemListAction" name="deleteItem" indexId="idx">
 									<input type="hidden" name="id" value="<s:property value="id"/>"/>
 									<input type="hidden" name="item" id="id_item" value="<s:property value="itemName"/>"/>
@@ -97,17 +94,19 @@ var hoge = document.forms.deleteItem.item.value;
 						</tr>
 					</s:iterator>
 				</table>
+
+			<!-- 商品情報の全削除 -->
 			<s:form action="ItemListDeleteConfirmAction">
-				<s:submit value="削除"/>
+				<s:submit value="商品情報を全て削除"/>
 			</s:form>
-			<div id="text-right">
-				<p>管理者画面TOPへ戻る場合は<a href='<s:url action="AdminAction"/>'>こちら</a></p>
+
+			<div id="bottom">
 			</div>
+
 		</div>
 	</div>
-	<div id="footer">
-		<div id="pr">
-		</div>
-	</div>
+
+	<!-- フッター -->
+	<jsp:include page="footer.jsp"/>
 </body>
 </html>

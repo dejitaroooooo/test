@@ -14,42 +14,40 @@
 <title>ItemCreateComplete画面</title>
 
 <link rel="stylesheet" type="text/css" href="./css/style.css">
-<link rel="stylesheet" type="text/css" href="./css/style-admin.css">
-
-<script type="text/javascript">
-	function submitAction(url){
-		$('form').attr('action',url);
-		$('form').submit();
-	}
+<script type="text/javascript" src="javascript/script.js">
 </script>
+
 </head>
 <body>
-	<div id="header">
-		<div id="pr">
-		</div>
-	</div>
+	<!-- ヘッダー -->
+	<jsp:include page="headerAdmin.jsp"/>
+
+	<!-- メイン -->
 	<div id="main">
+		<!-- トップ -->
 		<div id="top">
 			<p>ItemCreateComplete</p>
 		</div>
-		<div>
-			<h3>商品の登録が完了致しました。</h3>
-			<h3>さらに追加しますか？</h3>
+
+		<!-- コンテンツ -->
+		<div id="contents">
+			<h3>商品の登録が完了致しました。<br>さらに追加しますか？</h3>
 
 				<s:form>
 					<td><input type="button" value="はい" onclick="submitAction('ItemCreateAction')"/></td>
 					<td><input type="button" value="いいえ" onclick="submitAction('AdminAction')"/></td>
 				</s:form>
 
-
-			<div>
-				<a href='<s:url action="ItemListAction"/>'>商品リスト</a>
+			<!-- ボトム -->
+			<div id="bottom">
+				商品リストの確認は
+				<a href='<s:url action="ItemListAction"/>'>こちら</a>
 			</div>
 		</div>
+
 	</div>
-	<div id="footer">
-		<div id="pr">
-		</div>
-	</div>
+
+	<!-- フッター -->
+	<jsp:include page="footer.jsp"/>
 </body>
 </html>

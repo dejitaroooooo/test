@@ -16,24 +16,22 @@
 
 </head>
 <body>
-	<div id="header">
-		<div id="pr">
-		</div>
-	</div>
+
+	<jsp:include page="header.jsp"/>
+
 	<div id="main">
 		<div id="top">
 			<p>UserCreateComplete</p>
 		</div>
-		<div>
+		<div id="contents">
 			<h3>ユーザの登録が完了致しました。</h3>
 			<div>
-				<a href='<s:url action="HomeAction" />'>ログインへ</a>
+				<a href='<s:url action="LoginAction" />'>ログインへ</a>
 			</div>
 		</div>
 	</div>
-	<div id="footer">
-		<div id="pr">
-		</div>
-	</div>
+
+	<jsp:include page="footer.jsp"/>
+
 </body>
 </html>

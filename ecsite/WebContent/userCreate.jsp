@@ -16,56 +16,47 @@
 
 </head>
 <body>
-	<div id="header">
-		<div id="pr">
-		</div>
-	</div>
+
+	<jsp:include page="header.jsp"/>
+
 	<div id="main">
 		<div id="top">
 			<p>UserCreate</p>
 		</div>
-		<div>
+
+		<div id="contents">
 			<s:if test="errorMessage != ''">
 				<h3><font color = "red"><s:property value="errorMessage" escape="false"/></font></h3>
 			</s:if>
+
 			<table>
 				<s:form action="UserCreateConfirmAction">
 					<tr>
-						<td>
-							<label>ログインID：</label>
-						</td>
-						<td>
-							<input type="text" name="loginUserId" value="" required/>
-						</td>
+						<td><label>ログインID：</label></td>
+						<td><input type="text" name="loginUserId" value="" required/></td>
 					</tr>
 					<tr>
-						<td>
-							<label>ログインPASS：</label>
-						</td>
-						<td>
-							<input type="password" name="loginPassword" value="" required/>
-						</td>
+						<td><label>ログインPASS：</label></td>
+						<td><input type="password" name="loginPassword" value="" required/></td>
 					</tr>
 					<tr>
-						<td>
-							<label>ユーザ名：</label>
-						</td>
-						<td>
-							<input type="text" name="userName" value="" required/>
-						</td>
+						<td><label>ユーザ名：</label></td>
+						<td><input type="text" name="userName" value="" required/></td>
 					</tr>
 					<s:submit value="登録"/>
 				</s:form>
 			</table>
-			<div>
-				<span>前画面に戻る場合は</span>
-				<a href='<s:url action="HomeAction"/>'>こちら</a>
+
+			<div id="bottom">
+				<span>Login画面に戻る場合は</span>
+				<a href='<s:url action="LoginAction"/>'>こちら</a>
 			</div>
+
 		</div>
+
 	</div>
-	<div id="footer">
-		<div id="pr">
-		</div>
-	</div>
+
+	<jsp:include page="footer.jsp"/>
+
 </body>
 </html>

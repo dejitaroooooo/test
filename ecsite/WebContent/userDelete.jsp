@@ -16,20 +16,22 @@
 
 </head>
 <body>
-	<div id="header">
-		<div id="pr">
-		</div>
-	</div>
+
+	<jsp:include page="header.jsp"/>
+
 	<div id="main">
 		<div id="top">
 			<p>UserDelete</p>
 		</div>
-		<div>
-			<s:if test="errorMessage != ''">
-				<h3><font color = "red"><s:property value="errorMessage" escape="false"/></font></h3>
-			</s:if>
+
+		<div id="contents">
+
 			<s:form action="UserDeleteConfirmAction">
 				<h3>パスワードを入力してください</h3>
+				<s:if test="errorMessage != ''">
+					<h3><font color = "red"><s:property value="errorMessage" escape="false"/></font></h3>
+				</s:if>
+
 				<table>
 					<tr>
 						<td>ID:</td>
@@ -42,15 +44,14 @@
 					<s:submit value="送信"/>
 				</table>
 			</s:form>
-			<div id="text-right">
-				<p>戻る場合は<a href='<s:url action="MyPageAction"/>'>こちら</a><p>
-			</div>
 
+			<div id="bottomt">
+				<p>MyPageへ戻る場合は<a href='<s:url action="MyPageAction"/>'>こちら</a><p>
+			</div>
 		</div>
 	</div>
-	<div id ="footer">
-		<div id="pr">
-		</div>
-	</div>
+
+	<jsp:include page="footer.jsp"/>
+
 </body>
 </html>

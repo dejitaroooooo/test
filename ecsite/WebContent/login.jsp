@@ -16,37 +16,36 @@
 
 </head>
 <body>
-	<div id="header">
-		<div id="pr">
+
+	<jsp:include page="header.jsp"/>
+
+	<div id="main">
+		<div id="top">
+			<p>Login</p>
 		</div>
-	</div>
-	<div>
-		<div id="main">
-			<div id="top">
-				<p>Login</p>
-			</div>
-			<div>
-				<h3>商品を購入する際にはログインをお願いします。</h3>
-				<s:if test="checkFlg == 1">
-					<h3 style="color:red;"><s:property value="message"/></h3>
-				</s:if>
-				<s:form action="LoginAction">
-					<s:textfield name="loginUserId"/>
-					<s:password name="loginPassword"/>
-					<input type="hidden" name="checkFlg" value="1"/>
-					<s:submit value="ログイン"/>
-				</s:form>
-				<br/>
-				<div id="text-link">
-					<p>新規ユーザ登録は<a href='<s:url action="UserCreateAction"/>'>こちら</a></p>
-					<p>Homeへ戻る場合は<a href='<s:url action="GoHomeAction"/>'>こちら</a></p>
-				</div>
-			</div>
-		</div>
-		<div id="footer">
-			<div id="pr">
+
+		<div id="contents">
+			<h3>商品を購入する際にはログインをお願いします。</h3>
+
+			<s:if test="checkFlg == 1">
+				<h3 style="color:red;"><s:property value="message"/></h3>
+			</s:if>
+
+			<s:form action="LoginAction">
+				<s:textfield name="loginUserId"/>
+				<s:password name="loginPassword"/>
+				<input type="hidden" name="checkFlg" value="1"/>
+				<s:submit value="ログイン"/>
+			</s:form>
+
+			<div id="bottom">
+				<p>新規ユーザ登録は<a href='<s:url action="UserCreateAction"/>'>こちら</a></p>
+				<p>Homeへ戻る場合は<a href='<s:url action="GoHomeAction"/>'>こちら</a></p>
 			</div>
 		</div>
 	</div>
+
+	<jsp:include page="footer.jsp"/>
+
 </body>
 </html>
