@@ -43,14 +43,22 @@
 </head>
 <body>
 
+	<!-- ヘッダー -->
 	<jsp:include page="header.jsp"/>
 
+	<!-- メイン -->
 	<div id="main">
+
+		<!-- トップ -->
 		<div id="top">
 			<p>Home</p>
 		</div>
 
+		<!-- コンテンツ -->
 		<div id="contents">
+
+			<!-- 画面左側 -->
+			<!--商品ジャンルメニュー -->
 			<div id="genre-menue">
 				<h3>ジャンルから探す</h3>
 				<ul>
@@ -60,13 +68,15 @@
 					<li><b><a href='<s:url action="BuyItemAction?selectedGenre=食材"/>'>食材</a></b></li>
 				</ul>
 			</div>
+
+			<!-- 画面右側 -->
 			<div id="right-content">
-
-
+				<!-- 商品一覧ボタン -->
 				<s:form action="BuyItemAction">
 					<s:submit value="商品一覧を見る" id="onmouse" />
 				</s:form>
 
+				<!-- スライドショー -->
 				<div class="slideshow">
 					<p><b>今月の注目商品!</b></p>
 					<input type="radio" name="slideshow" id="switch1" checked>
@@ -98,16 +108,22 @@
 						<label for="switch5"></label>
 					</p>
 				</div>
+
 			</div>
+
 		</div>
+
+		<!-- ボトム -->
 		<div id="bottom">
 			<s:if test="#session.login_user_id != null">
 				<p>ログアウトする場合は<a href='<s:url action="LogoutAction"/>'>こちら</a></p>
 			</s:if>
 			<p>管理者用ページは<a href='<s:url action="AdminAction"/>'>こちら</a></p>
 		</div>
+
 	</div>
 
+	<!-- フッター -->
 	<jsp:include page="footer.jsp"/>
 
 </body>

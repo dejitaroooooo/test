@@ -17,18 +17,26 @@
 </head>
 <body>
 
+	<!-- ヘッダー -->
 	<jsp:include page="header.jsp"/>
 
+	<!-- メイン -->
 	<div id="main">
+
+		<!-- トップ -->
 		<div id="top">
 			<p>UserCreate</p>
 		</div>
 
+		<!-- コンテンツ -->
 		<div id="contents">
+
+			<!-- メッセージ表示 -->
 			<s:if test="errorMessage != ''">
 				<h3><font color = "red"><s:property value="errorMessage" escape="false"/></font></h3>
 			</s:if>
 
+			<!-- 入力フォーム -->
 			<table>
 				<s:form action="UserCreateConfirmAction">
 					<tr>
@@ -47,6 +55,7 @@
 				</s:form>
 			</table>
 
+			<!-- ボトム -->
 			<div id="bottom">
 				<span>Login画面に戻る場合は</span>
 				<a href='<s:url action="LoginAction"/>'>こちら</a>
@@ -56,6 +65,7 @@
 
 	</div>
 
+	<!-- フッター -->
 	<jsp:include page="footer.jsp"/>
 
 </body>

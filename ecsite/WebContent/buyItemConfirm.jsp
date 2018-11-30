@@ -20,31 +20,37 @@
 </head>
 <body>
 
+	<!-- ヘッダー -->
 	<jsp:include page="header.jsp"/>
 
+	<!-- メイン -->
 	<div id="main">
+
+		<!-- トップ -->
 		<div id="top">
 			<p>BuyItemConfirm</p>
 		</div>
 
+		<!-- コンテンツ -->
 		<div id="contents">
+			<!-- 確認フォーム -->
 			<p><b>以下の商品を購入します<br>よろしいですか？</b></p>
 			<s:form name="s">
 				<tr>
 					<td>商品名</td>
-					<td><s:property value="session.buyItem_name"/>
+					<td><s:property value="session.buyItem_name"/></td>
 				</tr>
 				<tr>
 					<td>価格</td>
-					<td><s:property value="session.total_price"/><span>円</span>
+					<td><s:property value="session.total_price"/><span>円</span></td>
 				</tr>
 				<tr>
 					<td>購入個数</td>
-					<td><s:property value="session.count"/><span>個</span>
+					<td><s:property value="session.count"/><span>個</span></td>
 				</tr>
 				<tr>
 					<td>支払い方法</td>
-					<td><s:property value="session.pay"/>
+					<td><s:property value="session.pay"/></td>
 				</tr>
 				<tr>
 					<td><input type="button" value="戻る" onclick="submitAction('HomeAction')"/><td>
@@ -52,8 +58,10 @@
 				</tr>
 			</s:form>
 		</div>
+
 	</div>
 
+	<!-- フッター -->
 	<jsp:include page="footer.jsp"/>
 
 </body>

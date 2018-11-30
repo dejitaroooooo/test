@@ -17,20 +17,30 @@
 </head>
 <body>
 
+	<!-- ヘッダー -->
 	<jsp:include page="header.jsp"/>
 
+	<!-- メイン -->
 	<div id="main">
+
+		<!-- トップ -->
 		<div id="top">
 			<p>UserCreateComplete</p>
 		</div>
+
+		<!-- コンテンツ -->
 		<div id="contents">
 			<h3>ユーザの登録が完了致しました。</h3>
-			<div>
-				<a href='<s:url action="LoginAction" />'>ログインへ</a>
-			</div>
 		</div>
+
+		<!-- ボトム -->
+		<div id="bottom">
+			<a href='<s:url action="LoginAction" />'>ログインへ</a>
+		</div>
+
 	</div>
 
+	<!-- フッター -->
 	<jsp:include page="footer.jsp"/>
 
 </body>

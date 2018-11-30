@@ -17,27 +17,35 @@
 </head>
 <body>
 
+	<!-- ヘッダー -->
 	<jsp:include page="header.jsp"/>
 
+	<!-- メイン -->
 	<div id="main">
+
+		<!-- トップ -->
 		<div id="top">
 			<p>BuyItemComplete</p>
 		</div>
 
+		<!-- コンテンツ -->
 		<div id="contents">
 			<h3>購入手続きが完了しました。</h3>
 			<s:form action="BuyItemAction">
 				<s:submit value="買い物を続ける"/>
 			</s:form>
-
-			<div id="bottom">
-				<a href='<s:url action="MyPageAction"/>'>マイページ</a>
-				<span>から購入履歴の確認が可能です。</span>
-				<p>Homeへ戻る場合は<a href='<s:url action="GoHomeAction"/>'>こちら</a></p>
-			</div>
 		</div>
+
+		<!-- ボトム -->
+		<div id="bottom">
+				<a href='<s:url action="MyPageAction"/>'>マイページ</a>
+			<span>から購入履歴の確認が可能です。</span>
+			<p>Homeへ戻る場合は<a href='<s:url action="GoHomeAction"/>'>こちら</a></p>
+		</div>
+
 	</div>
 
+	<!-- フッター -->
 	<jsp:include page="footer.jsp"/>
 
 </body>

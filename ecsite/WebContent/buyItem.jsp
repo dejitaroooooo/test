@@ -12,7 +12,6 @@
 <title>BuyItem画面</title>
 
 <link rel="stylesheet" type="text/css" href="./css/style.css">
-
 <style type="text/css">
 	#table{
 		display:flex;
@@ -21,22 +20,30 @@
 	#pager{
 		clear:both;
 	}
+</style>
 
-	</style>
 </head>
 <body>
+
+	<!-- ヘッダー -->
 	<jsp:include page="header.jsp"/>
+
+	<!-- メイン -->
 	<div id="main">
+
+		<!-- トップ -->
 		<div id="top">
 			<p>BuyItem</p>
 		</div>
+
+		<!-- コンテンツ -->
 		<div id="contents">
+
+			<!-- ジャンル選択フォーム -->
 			<s:form action="BuyItemAction">
 				<table>
 					<tr>
-						<td>
-							ジャンル：
-						</td>
+						<td>ジャンル：</td>
 						<td>
 							<select name="selectedGenre">
 								<option value="全て">全て</option>
@@ -46,48 +53,40 @@
 								<option value="食材">食材</option>
 							</select>
 						</td>
-						<td>
-							<input type="submit" value="検索"/>
-						</td>
+						<td><input type="submit" value="検索"/></td>
 					</tr>
 				</table>
 			</s:form>
 
+			<!-- 商品リスト表示＆商品選択フォーム -->
 			<h3>商品リスト(ジャンル：<s:property value="selectedGenre"/>)</h3>
-
 			<s:iterator value="session.itemInfoDtoList">
 				<s:form action="BuyItemConfirmAction">
 					<input type="hidden" name="id" value="<s:property value="id"/>">
 						<table border="1" style="float:left;">
+							<!-- 商品画像 -->
 							<tr>
-								<td>
-								</td>
-								<td>
-									<img src="img/item/<s:property value="itemName"/>.png">
-								</td>
+								<td><img src="img/item/<s:property value="itemName"/>.png"></td>
 							</tr>
+							<!-- 商品名 -->
 							<tr>
-								<td>
-									<span>商品名</span>
-								</td>
+								<td><span>商品名</span></td>
 								<td>
 									<s:property value="itemName"/><br>
 									<input type="hidden" name="itemName" value="<s:property value="itemName"/>">
 								</td>
 							</tr>
+							<!-- 値段 -->
 							<tr>
-								<td>
-									<span>値段</span>
-								</td>
+								<td><span>値段</span></td>
 								<td>
 									<s:property value="itemPrice" /><span>円</span>
 									<input type="hidden" name="itemPrice" value="<s:property value="itemPrice"/>">
 								</td>
 							</tr>
+							<!-- 購入個数 -->
 							<tr>
-								<td>
-									<span>購入個数</span>
-								</td>
+								<td><span>購入個数</span></td>
 								<td>
 									<select name="count">
 										<%
@@ -101,25 +100,25 @@
 									<input type="hidden" name="itemStock" value="<s:property value="itemStock"/>">
 								</td>
 							</tr>
+							<!-- 支払い方法 -->
 							<tr>
-								<td>
-									<span>支払い方法</span>
-								</td>
+								<td><span>支払い方法</span>	</td>
 								<td>
 									<input type="radio" name="pay" value="1" checked="checked">現金払い
 									<input type="radio" name="pay" value="2">クレジットカード
 								</td>
 							</tr>
+							<!-- 購入ボタン -->
 							<tr>
-								<td>
-									<s:submit value="購入"/>
-								</td>
+								<td><s:submit value="購入"/></td>
 							</tr>
 						</table>
 				</s:form>
 			</s:iterator>
+
 		</div>
 
+		<!-- ページャー -->
 		<div id="pager">
 			<s:iterator begin="1" end="#session.totalPageSize" status="pageNo">
 				<s:if test="#session.currentPageNo == #pageNo.count">
@@ -133,6 +132,7 @@
 
 	</div>
 
+	<!-- フッター -->
 	<jsp:include page="footer.jsp"/>
 
 </body>

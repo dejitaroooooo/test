@@ -17,20 +17,27 @@
 </head>
 <body>
 
+	<!-- ヘッダー -->
 	<jsp:include page="header.jsp"/>
 
+	<!-- メイン -->
 	<div id="main">
+
+		<!-- トップ -->
 		<div id="top">
 			<p>Login</p>
 		</div>
 
+		<!-- コンテンツ -->
 		<div id="contents">
 			<h3>商品を購入する際にはログインをお願いします。</h3>
 
+			<!-- メッセージ表示 -->
 			<s:if test="checkFlg == 1">
 				<h3 style="color:red;"><s:property value="message"/></h3>
 			</s:if>
 
+			<!-- 入力フォーム -->
 			<s:form action="LoginAction">
 				<s:textfield name="loginUserId"/>
 				<s:password name="loginPassword"/>
@@ -38,13 +45,17 @@
 				<s:submit value="ログイン"/>
 			</s:form>
 
-			<div id="bottom">
-				<p>新規ユーザ登録は<a href='<s:url action="UserCreateAction"/>'>こちら</a></p>
-				<p>Homeへ戻る場合は<a href='<s:url action="GoHomeAction"/>'>こちら</a></p>
-			</div>
 		</div>
+
+		<!-- ボトム -->
+		<div id="bottom">
+			<p>新規ユーザ登録は<a href='<s:url action="UserCreateAction"/>'>こちら</a></p>
+			<p>Homeへ戻る場合は<a href='<s:url action="GoHomeAction"/>'>こちら</a></p>
+		</div>
+
 	</div>
 
+	<!-- フッター -->
 	<jsp:include page="footer.jsp"/>
 
 </body>

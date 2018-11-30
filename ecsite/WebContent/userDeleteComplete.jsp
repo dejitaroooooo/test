@@ -17,14 +17,18 @@
 </head>
 <body>
 
+	<!-- ヘッダー -->
 	<jsp:include page="header.jsp"/>
 
+	<!-- メイン -->
 	<div id="main">
 
+		<!-- トップ -->
 		<div id="top">
 			<p>UserDeleteComplete</p>
 		</div>
 
+		<!-- コンテンツ -->
 		<div id="contents">
 			<h3>退会しました。</h3>
 			<s:form action="GoHomeAction">
@@ -34,6 +38,7 @@
 
 	</div>
 
+	<!-- フッター -->
 	<jsp:include page="footer.jsp"/>
 
 </body>

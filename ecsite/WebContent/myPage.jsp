@@ -17,12 +17,17 @@
 </head>
 <body>
 
+	<!-- ヘッダー -->
 	<jsp:include page="header.jsp"/>
 
+	<!-- メイン -->
 	<div id="main">
+
+		<!-- トップ -->
 		<div id="top">
 			<p>MyPage</p>
 		</div>
+
 
 		<div id="contents">
 			<s:if test="myPageList == null">

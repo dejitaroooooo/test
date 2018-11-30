@@ -18,15 +18,20 @@
 </head>
 <body>
 
+	<!-- ヘッダー -->
 	<jsp:include page="header.jsp"/>
 
+	<!-- メイン -->
 	<div id="main">
 
+		<!-- トップ -->
 		<div id="top">
 			<p>UserCreateConfirm</p>
 		</div>
 
+		<!-- コンテンツ -->
 		<div id="contents">
+			<!-- 確認フォーム -->
 			<h3>以下の内容で登録します<br>よろしいですか？</h3>
 			<table>
 				<s:form action="UserCreateCompleteAction" name="s">
@@ -52,30 +57,8 @@
 
 	</div>
 
+	<!-- フッター -->
 	<jsp:include page="footer.jsp"/>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
