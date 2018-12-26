@@ -35,7 +35,7 @@
 			<h3>以下の商品を登録します<br>よろしいですか？</h3>
 			<p>読み込むファイル：<s:property value="filename"/></p>
 			<p>(ファイルパス：WebContent/file/ItemList.xlsx)</p>
-			<s:form action="ItemCreateFileReadCompleteAction">
+			<s:form action="ItemCreateFileReadCompleteAction"  name="s">
 				<table>
 					<tr>
 						<td><input type="button" value="はい" onclick="submitAction('ItemCreateFileReadCompleteAction')"/></td>

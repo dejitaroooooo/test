@@ -12,6 +12,7 @@ public class LoginDAO {
 	private Connection connection = dbConnector.getConnection();
 	private LoginDTO loginDTO = new LoginDTO();
 
+	/*渡されたログインIDとパスワードが一致するユーザの情報を検索する*/
 	public LoginDTO getLoginUserInfo(String loginUserId, String loginPassword){
 		String sql = "SELECT * FROM login_user_transaction WHERE login_id=? AND login_pass=?";
 
@@ -26,9 +27,11 @@ public class LoginDAO {
 				loginDTO.setLoginPassword(resultSet.getString("login_pass"));
 				loginDTO.setUserName(resultSet.getString("user_name"));
 
+				/*一致するユーザがDB上に存在する場合*/
 				if(!(resultSet.getString("login_id").equals(null))){
 					loginDTO.setLoginFlg(true);
 				}
+				/*一致するユーザがDB上に存在しない場合*/
 				else{
 					loginDTO.setLoginId(null);
 				}

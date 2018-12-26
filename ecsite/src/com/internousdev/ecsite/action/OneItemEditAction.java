@@ -13,20 +13,16 @@ public class OneItemEditAction extends ActionSupport implements SessionAware{
 	private String itemPrice;
 	private String itemStock;
 	public Map<String, Object> session;
-//	private ItemListDAO itemInfoDAO = new ItemListDAO();
-//	private ArrayList<ItemInfoDTO> itemList = new ArrayList<ItemInfoDTO>();
 
 	public String execute() throws SQLException{
-//		itemList = itemInfoDAO.getItemInfo();
+
+		/*編集する商品IDをセッションに保存する*/
 		session.put("edit_Id", id);
-		session.put("edit_ItemName", itemName);
-		session.put("edit_ItemPrice", itemPrice);
-		session.put("edit_ItemStock", itemStock);
 
-		String ret = SUCCESS;
-
-		return ret;
+		return SUCCESS;
 	}
+
+	/*以下セッター＆ゲッター*/
 	public String getId() {
 		return id;
 	}
@@ -57,10 +53,4 @@ public class OneItemEditAction extends ActionSupport implements SessionAware{
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-//	public ArrayList<ItemInfoDTO> getItemList() {
-//		return itemList;
-//	}
-//	public void setItemList(ArrayList<ItemInfoDTO> itemList) {
-//		this.itemList = itemList;
-//	}
 }

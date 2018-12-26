@@ -6,12 +6,13 @@ import com.internousdev.ecsite.dao.ItemListDeleteCompleteDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class ItemListDeleteCompleteAction extends ActionSupport{
-	private ItemListDeleteCompleteDAO itemListDeleteCompleteDAO = new ItemListDeleteCompleteDAO();
 	private int ret;
 
 	public String execute() throws SQLException{
+
+		/*商品情報を全て削除する*/
+		ItemListDeleteCompleteDAO itemListDeleteCompleteDAO = new ItemListDeleteCompleteDAO();
 		ret = itemListDeleteCompleteDAO.itemInfoDelete();
-		System.out.println("合計 " + ret + "件の商品情報を削除しました。");
 
 		return SUCCESS;
 	}

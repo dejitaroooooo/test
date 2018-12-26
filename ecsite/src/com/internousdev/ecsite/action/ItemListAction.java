@@ -12,46 +12,56 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class ItemListAction extends ActionSupport implements SessionAware{
 	public Map<String, Object> session;
-	private ItemListDAO itemInfoDAO = new ItemListDAO();
-	private ItemListDAO itemDeleteDAO = new ItemListDAO();
 	private ArrayList<ItemInfoDTO> itemList = new ArrayList<ItemInfoDTO>();
 	private String id;
-	private String itemName;
-	private String deleteFlg;
+	private String item;
+	private String deleteFlg = "0";
 	private String message;
 	private int ret;
 
-	public int getRet() {
-		return ret;
-	}
-
-	public void setRet(int ret) {
-		this.ret = ret;
-	}
-
 	public String execute() throws SQLException{
-		if(deleteFlg== null){
-		}
-		else if(deleteFlg.equals("1")){
+
+		/*削除ボタンが押下され、デリートフラグが立った場合*/
+		if(deleteFlg.equals("1")){
+			/*選択された商品の情報を削除する*/
 			delete();
 		}
 
+		/*商品情報をDBから取得する*/
+		ItemListDAO itemInfoDAO = new ItemListDAO();
 		itemList = itemInfoDAO.getItemInfo();
 
 		return SUCCESS;
 	}
 
+	/*選択された商品の情報をDBから削除*/
 	public void delete() throws SQLException {
 
+		/*渡されたidをもつ商品の情報をDBから削除*/
+		ItemListDAO itemDeleteDAO = new ItemListDAO();
 		ret = itemDeleteDAO.oneItemDelete(id);
 
-		if(ret < 0){
-			setMessage("[" + itemName  + "]を削除できません。\n既に購入しているユーザがいます。");
+		/*問題なく削除できた場合*/
+		if(ret>0){
+			setMessage("[" + item  + "]を削除しました。");
 		}
-		else if(ret>0){
-			setMessage("[" + itemName  + "]を削除しました。");
+		/*既に購入しているユーザがいる場合*/
+		else if(ret == -1){
+			setMessage("[" + item  + "]を削除できません。\n既に購入しているユーザがいます。");
 		}
+		/*削除に失敗した場合*/
+		else{
+			setMessage("削除に失敗しました。");
+		}
+	}
 
+	/*以下セッター＆ゲッター*/
+	public String getItem() {
+		return item;
+	}
+
+	public void setItem(String item) {
+		this.item = item;
 	}
 
 	public String getMessage() {
@@ -60,14 +70,6 @@ public class ItemListAction extends ActionSupport implements SessionAware{
 
 	public void setMessage(String message) {
 		this.message = message;
-	}
-
-	public String getItemName() {
-		return itemName;
-	}
-
-	public void setItemName(String itemName) {
-		this.itemName = itemName;
 	}
 
 	public String getId() {
@@ -90,14 +92,6 @@ public class ItemListAction extends ActionSupport implements SessionAware{
 		this.session = session;
 	}
 
-	public ItemListDAO getItemInfoDAO() {
-		return itemInfoDAO;
-	}
-
-	public void setItemInfoDAO(ItemListDAO itemInfoDAO) {
-		this.itemInfoDAO = itemInfoDAO;
-	}
-
 	public ArrayList<ItemInfoDTO> getItemList() {
 		return itemList;
 	}
@@ -112,5 +106,13 @@ public class ItemListAction extends ActionSupport implements SessionAware{
 
 	public void setDeleteFlg(String deleteFlg) {
 		this.deleteFlg = deleteFlg;
+	}
+
+	public int getRet() {
+		return ret;
+	}
+
+	public void setRet(int ret) {
+		this.ret = ret;
 	}
 }

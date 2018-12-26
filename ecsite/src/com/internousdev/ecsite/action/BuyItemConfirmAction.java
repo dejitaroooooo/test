@@ -19,46 +19,24 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
 	public String execute() throws SQLException{
 		String result = SUCCESS;
 
+		/*購入する商品に関する情報をセッションに保存*/
 		session.put("buyItem_id", id);
 		session.put("buyItem_name", itemName);
 		session.put("buy_item_price", itemPrice);
 		session.put("buy_item_Stock", itemStock);
 		session.put("count",count);
-//		int intCount = Integer.parseInt(session.get("count").toString());
-//		int intPrice = Integer.parseInt(session.get("buyItem_price").toString());
-//		int intPrice = Integer.parseInt(itemPrice);
-
 		session.put("total_price", count * itemPrice);
-
-		String payment;
 		if(pay.equals("1")){
-			payment="現金払い";
-			session.put("pay", payment);
+			session.put("pay", "現金払い");
 		}
 		else{
-			payment="クレジットカード";
-			session.put("pay", payment);
+			session.put("pay", "クレジットカード");
 		}
+
 		return result;
 	}
-/*
-	public ItemListDAO getItemInfoDAO() {
-		return itemInfoDAO;
-	}
 
-	public void setItemInfoDAO(ItemListDAO itemInfoDAO) {
-		this.itemInfoDAO = itemInfoDAO;
-	}
-
-	public ArrayList<ItemInfoDTO> getItemList() {
-		return itemList;
-	}
-
-	public void setItemList(ArrayList<ItemInfoDTO> itemList) {
-		this.itemList = itemList;
-	}
-	*/
-
+	/*以下セッター＆ゲッター*/
 	public int getItemStock() {
 		return itemStock;
 	}

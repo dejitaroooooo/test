@@ -33,7 +33,7 @@
 		<div id="contents">
 			<h3>商品の登録が完了致しました。<br>さらに追加しますか？</h3>
 
-				<s:form>
+				<s:form name="s">
 					<td><input type="button" value="はい" onclick="submitAction('ItemCreateAction')"/></td>
 					<td><input type="button" value="いいえ" onclick="submitAction('AdminAction')"/></td>
 				</s:form>

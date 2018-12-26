@@ -11,84 +11,41 @@ import com.internousdev.ecsite.dto.ItemInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class OneItemEditCompleteAction extends ActionSupport implements SessionAware{
-	private String id;
-	private String itemName;
-	private String itemPrice;
-	private String itemStock;
-	public Map<String, Object> session;;
-	private ItemListDAO itemUpdateDAO = new ItemListDAO();
-	private ItemListDAO itemInfoDAO = new ItemListDAO();
+	public Map<String, Object> session;
 	private ArrayList<ItemInfoDTO> itemList = new ArrayList<ItemInfoDTO>();
-//	private String itemName;
 	private String editItemPrice;
 	private String editItemStock;
 
 	public String execute() throws SQLException{
 		String result = ERROR;
-		id = session.get("edit_Id").toString();
-		itemName = session.get("edit_ItemName").toString();
-		itemPrice = session.get("edit_ItemPrice").toString();
-		itemStock = session.get("edit_ItemStock").toString();
-//		System.out.println(id);
-//		System.out.println(itemName);
-//		System.out.println(itemPrice);
-//		System.out.println(itemStock);
-//		System.out.println(editItemPrice);
-//		System.out.println(editItemStock);
+		ItemListDAO itemInfoDAO = new ItemListDAO();
 
+		/*記入漏れが無い場合*/
 		if( !(editItemPrice.equals("")) && !(editItemStock.equals("")) ){
-			int count = itemUpdateDAO.updateItem(id, editItemPrice, editItemStock);
-			System.out.println(count);
+
+			/*該当するIDを持つ商品の価格とストック数を変更する*/
+			int count = itemInfoDAO.updateItem(session.get("edit_Id").toString(), editItemPrice, editItemStock);
+
+			/*変更できた場合*/
 			if(count > 0){
+				/*全商品情報をDBから取得する*/
+				itemInfoDAO = new ItemListDAO();
 				itemList = itemInfoDAO.getItemInfo();
 
 				result = SUCCESS;
 			}
 		}
-		else{
-			return result;
-		}
+
 		return result;
 	}
 
+	/*以下セッター＆ゲッター*/
 	public ArrayList<ItemInfoDTO> getItemList() {
 		return itemList;
 	}
 
 	public void setItemList(ArrayList<ItemInfoDTO> itemList) {
 		this.itemList = itemList;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getItemName() {
-		return itemName;
-	}
-
-	public void setItemName(String itemName) {
-		this.itemName = itemName;
-	}
-
-	public String getItemPrice() {
-		return itemPrice;
-	}
-
-	public void setItemPrice(String itemPrice) {
-		this.itemPrice = itemPrice;
-	}
-
-	public String getItemStock() {
-		return itemStock;
-	}
-
-	public void setItemStock(String itemStock) {
-		this.itemStock = itemStock;
 	}
 
 	public Map<String, Object> getSession() {
@@ -114,8 +71,4 @@ public class OneItemEditCompleteAction extends ActionSupport implements SessionA
 	public void setEditItemStock(String editItemStock) {
 		this.editItemStock = editItemStock;
 	}
-
-	//private ItemUpdateDAO
-
-
 }

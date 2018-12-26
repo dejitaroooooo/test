@@ -19,12 +19,15 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	public String execute() throws SQLException{
 		String result = ERROR;
 
+		/*入力フォームに未入力箇所がある場合*/
 		if((loginUserId.equals("")) || (loginPassword.equals("")) || (userName.equals(""))){
 			setErrorMessage("未入力の項目があります。");
 		}
+		/*登録しようとしたIDが既に利用されている場合*/
 		else if(uccDAO.userSameInfo(loginUserId)){
 			setErrorMessage("入力したIDは既に使用されています。");
 		}
+		/*入力内容に問題がない場合*/
 		else{
 			session.put("loginUserId", loginUserId);
 			session.put("loginPassword", loginPassword);
@@ -35,6 +38,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		return result;
 	}
 
+	/*以下セッター＆ゲッター*/
 	public String getLoginUserId() {
 		return loginUserId;
 	}

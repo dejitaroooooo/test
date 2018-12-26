@@ -9,27 +9,22 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class UserListAction extends ActionSupport{
 	private ArrayList<UserInfoDTO> userList = new ArrayList<UserInfoDTO>();
-	private UserListDAO userListDAO = new UserListDAO();
 
 	public String execute() throws SQLException{
+
+		/*全ユーザ情報をDBから取得する*/
+		UserListDAO userListDAO = new UserListDAO();
 		userList = userListDAO.getUserInfo();
 		return SUCCESS;
 	}
 
+	/*以下セッター＆ゲッター*/
 	public ArrayList<UserInfoDTO> getUserList() {
 		return userList;
 	}
 
 	public void setUserList(ArrayList<UserInfoDTO> userList) {
 		this.userList = userList;
-	}
-
-	public UserListDAO getUserListDAO() {
-		return userListDAO;
-	}
-
-	public void setUserListDAO(UserListDAO userListDAO) {
-		this.userListDAO = userListDAO;
 	}
 
 }

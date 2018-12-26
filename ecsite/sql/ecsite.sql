@@ -51,7 +51,20 @@ insert_date datetime,
 update_date datetime
 );
 
+insert into genre_transaction(genre_id, genre_name, insert_date) values(1, "文房具", now());
+insert into genre_transaction(genre_id, genre_name, insert_date) values(2, "家具", now());
+insert into genre_transaction(genre_id, genre_name, insert_date) values(3, "家電", now());
+insert into genre_transaction(genre_id, genre_name, insert_date) values(4, "食材", now());
 
-insert into item_info_transaction(item_name, item_price, item_stock) values("ノートBook", 100, 50);
-insert into login_user_transaction(login_id, login_pass, user_name) values("internous", "internous01", "test");
-
+insert into item_info_transaction(item_name, item_genre, item_price, item_stock, insert_date) values("ノートブック", "文房具", 100, 50, now());
+insert into item_info_transaction(item_name, item_genre, item_price, item_stock, insert_date) values("消しゴム", "文房具", 100, 50, now());
+insert into item_info_transaction(item_name, item_genre, item_price, item_stock, insert_date) values("シャープペンシル", "文房具", 100, 50, now());
+insert into item_info_transaction(item_name, item_genre, item_price, item_stock, insert_date) values("ベッド", "家具", 10000, 5, now());
+insert into item_info_transaction(item_name, item_genre, item_price, item_stock, insert_date) values("本棚", "家具", 5000, 5, now());
+insert into item_info_transaction(item_name, item_genre, item_price, item_stock, insert_date) values("エアコン", "家電", 100, 50, now());
+insert into item_info_transaction(item_name, item_genre, item_price, item_stock, insert_date) values("洗濯機", "家電", 100, 50, now());
+insert into item_info_transaction(item_name, item_genre, item_price, item_stock, insert_date) values("そうめん", "食材", 300, 50, now());
+insert into item_info_transaction(item_name, item_genre, item_price, item_stock, insert_date) values("ひやむぎ", "食材", 300, 50, now());
+insert into item_info_transaction(item_name, item_genre, item_price, item_stock, insert_date) values("そば", "食材", 300, 50, now());
+insert into login_user_transaction(login_id, login_pass, user_name, insert_date) values("yamada", "taro", "test", now());
+insert into login_user_transaction(login_id, login_pass, user_name, insert_date) values("internous", "internous01", "test", now());

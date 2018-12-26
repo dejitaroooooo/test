@@ -13,6 +13,7 @@ public class BuyItemCompleteDAO {
 	private DateUtil dateUtil = new DateUtil();
 	private String sql;
 
+	/*ログインユーザの購入情報を登録するメソッド*/
 	public void buyItemeInfo(String item_transaction_id,
 		String user_master_id, String total_price,
 		String total_count, String pay) throws SQLException{
@@ -39,6 +40,7 @@ public class BuyItemCompleteDAO {
 		}
 	}
 
+	/*在庫数を購入後の在庫数に変更するメソッド*/
 	public void itemStockDecrease(String id, String stock) throws SQLException{
 		sql ="UPDATE item_info_transaction SET item_stock=? WHERE id=?";
 

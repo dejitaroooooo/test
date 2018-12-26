@@ -10,35 +10,29 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.ecsite.dao.ItemCreateFileReadDAO;
 import com.internousdev.ecsite.dto.ItemCreateFileReadDTO;
-import com.internousdev.ecsite.util.ItemCreateFileReadUtil;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class ItemCreateFileReadCompleteAction extends ActionSupport implements SessionAware{
 	Map <String, Object> session;
-	ItemCreateFileReadDAO dao = new ItemCreateFileReadDAO();
 	ArrayList<ItemCreateFileReadDTO> itemList = new ArrayList<ItemCreateFileReadDTO>();
 	ArrayList<ItemCreateFileReadDTO> excelList = new ArrayList<ItemCreateFileReadDTO>();
 
 	public String execute() throws SQLException, FileNotFoundException, IOException{
 		String result = SUCCESS;
+
+		/*商品情報をDBに保存*/
+		@SuppressWarnings("unchecked")
+		ArrayList<ItemCreateFileReadDTO> excelItemList = (ArrayList<ItemCreateFileReadDTO>)session.get("excel_item_list");
 		ItemCreateFileReadDAO dao = new ItemCreateFileReadDAO();
-		String filename = "ItemList.xlsx";
-		String sheetname = "Sheet1";
-//		itemList = (ArrayList<ItemCreateFileReadDTO>) session.get("excel_item_list");
-		ItemCreateFileReadUtil readExcel = new ItemCreateFileReadUtil();
+		dao.insertExcelItemInfo(excelItemList);
 
-		itemList = readExcel.excelRead(filename, sheetname);
-
-//		for(int i=0;i<itemList.size();i++){
-//			System.out.println(itemList.get(i).getItemName());
-//		}
-
-		dao.insertExcelItemInfo(itemList);
-
+		/*エクセルから取得した商品情報をセッションから削除*/
+		session.remove("excel_item_list");
 
 		return result;
 	}
 
+	/*以下セッター＆ゲッター*/
 	public Map<String, Object> getSession() {
 		return session;
 	}

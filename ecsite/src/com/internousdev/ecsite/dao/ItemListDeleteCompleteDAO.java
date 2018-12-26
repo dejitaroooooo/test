@@ -10,6 +10,7 @@ public class ItemListDeleteCompleteDAO {
 	private DBConnector dbConnector = new DBConnector();
 	private Connection connection = dbConnector.getConnection();
 
+	/*商品情報をDBから全て削除する*/
 	public int itemInfoDelete() throws SQLException{
 		String sql = "delete from item_info_transaction";
 		PreparedStatement preparedStatement;

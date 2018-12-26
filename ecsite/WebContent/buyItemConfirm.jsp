@@ -53,7 +53,7 @@
 					<td><s:property value="session.pay"/></td>
 				</tr>
 				<tr>
-					<td><input type="button" value="戻る" onclick="submitAction('HomeAction')"/><td>
+					<td><input type="button" value="戻る" onclick="submitAction('BuyItemAction')"/><td>
 					<td><input type="button" value="購入" onclick="submitAction('BuyItemCompleteAction')"/><td>
 				</tr>
 			</s:form>

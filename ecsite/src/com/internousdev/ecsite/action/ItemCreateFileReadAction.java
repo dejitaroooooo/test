@@ -13,31 +13,30 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class ItemCreateFileReadAction extends ActionSupport implements SessionAware{
 	Map<String, Object> session;
-	ArrayList<ItemCreateFileReadDTO> itemList = new ArrayList<ItemCreateFileReadDTO>();
-	String filename = "ItemList.xlsx";
-	String sheetname = "Sheet1";
+	private ArrayList<ItemCreateFileReadDTO> itemList = new ArrayList<ItemCreateFileReadDTO>();
 
 	public String execute() throws FileNotFoundException, IOException{
 		String result = SUCCESS;
-		ItemCreateFileReadUtil readExcel = new ItemCreateFileReadUtil();
+		String filename = "ItemList.xlsx"; //読み込むファイル名
+		String sheetname = "Sheet1"; //読み込むシート名
 
+		/*エクセルから商品情報を取得する*/
+		ItemCreateFileReadUtil readExcel = new ItemCreateFileReadUtil();
 		itemList = readExcel.excelRead(filename, sheetname);
+
+		/*エクセルから取得した商品情報をセッションに保存*/
 		session.put("excel_item_list", itemList);
 
 		return result;
 	}
 
+	/*以下セッター＆ゲッター*/
 	public ArrayList<ItemCreateFileReadDTO> getItemList() {
 		return itemList;
 	}
 
 	public void setItemList(ArrayList<ItemCreateFileReadDTO> itemList) {
 		this.itemList = itemList;
-	}
-
-	public String getFilename(){
-		return filename;
-
 	}
 
 	public Map<String, Object> getSession() {

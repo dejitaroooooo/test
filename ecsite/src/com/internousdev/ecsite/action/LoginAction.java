@@ -1,10 +1,14 @@
 package com.internousdev.ecsite.action;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.ecsite.dao.ItemListDAO;
 import com.internousdev.ecsite.dao.LoginDAO;
+import com.internousdev.ecsite.dto.ItemInfoDTO;
 import com.internousdev.ecsite.dto.LoginDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -14,31 +18,42 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	public Map<String, Object> session;
 	private LoginDAO loginDAO = new LoginDAO();
 	private LoginDTO loginDTO = new LoginDTO();
-//	private BuyItemDAO buyItemDAO = new BuyItemDAO();
 	private String message;
 	private int checkFlg;
+	private ArrayList<ItemInfoDTO> itemList = new ArrayList<ItemInfoDTO>();
 
-	public String execute(){
+	public String execute() throws SQLException{
 		String result = ERROR;
+
+		/*入力された情報を用いてDBからユーザ情報を取得する*/
 		loginDTO = loginDAO.getLoginUserInfo(loginUserId, loginPassword);
 		session.put("loginUser", loginDTO);
 
-		/*入力値からユーザ情報の検索を行う。*/
+		/*ログインに成功した場合*/
 		if(((LoginDTO) session.get("loginUser")).getLoginFlg()){
-			result = SUCCESS;
-//			BuyItemDTO buyItemDTO = buyItemDAO.getBuyItemInfo();
 			session.put("login_user_id", loginDTO.getLoginId());
-//			session.put("id", buyItemDTO.getId());
-//			session.put("buyItem_name", buyItemDTO.getItemName());
-//			session.put("buyItem_price",buyItemDTO.getItemPrice());
-			return result;
+			result = SUCCESS;
+		}
+		/*ログインに失敗した場合*/
+		else{
+			setMessage("IDまたはパスワードに誤りがあります。");
 		}
 
-		setMessage("IDまたはパスワードに誤りがあります。");
+
+		/*商品リストを取得*/
+		ItemListDAO itemInfoDAO = new ItemListDAO();
+		itemList = itemInfoDAO.getItemInfo();
 
 		return result;
 	}
 
+	/*以下セッター＆ゲッター*/
+	public ArrayList<ItemInfoDTO> getItemList() {
+		return itemList;
+	}
+	public void setItemList(ArrayList<ItemInfoDTO> itemList) {
+		this.itemList = itemList;
+	}
 	public String getLoginUserId() {
 		return loginUserId;
 	}

@@ -11,16 +11,18 @@ public class ItemCreateCompleteDAO {
 	private DBConnector dbConnector = new DBConnector();
 	private Connection connection = dbConnector.getConnection();
 	private DateUtil dateutil = new DateUtil();
-	String sql = "insert into item_info_transaction (item_name, item_price, item_stock, insert_date) values (?,?,?,?)";
+	String sql = "insert into item_info_transaction (item_name, item_genre, item_price, item_stock, insert_date) values (?,?,?,?,?)";
 
-	public void createItem(String itemName, String itemPrice, String itemStock) throws SQLException{
+	/*新しい商品情報をDBに保存する*/
+	public void createItem(String itemName, String itemGenre, String itemPrice, String itemStock) throws SQLException{
 
 		try{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, itemName);
-			preparedStatement.setString(2, itemPrice);
-			preparedStatement.setString(3, itemStock);
-			preparedStatement.setString(4, dateutil.getDate());
+			preparedStatement.setString(2, itemGenre);
+			preparedStatement.setString(3, itemPrice);
+			preparedStatement.setString(4, itemStock);
+			preparedStatement.setString(5, dateutil.getDate());
 			preparedStatement.execute();
 		}
 		catch(Exception e){

@@ -36,7 +36,7 @@
 			<!-- 確認フォーム -->
 			<h3>すべての商品を削除します。よろしいですか？</h3>
 			<table>
-				<s:form>
+				<s:form name="s">
 					<tr>
 						<td><input type="button" value="OK" onclick="submitAction('ItemListDeleteCompleteAction')"/></td>
 						<td><input type="button" value="キャンセル" onclick="submitAction('ItemListAction')"/></td>

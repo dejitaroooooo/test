@@ -14,6 +14,7 @@ public class UserCreateCompleteDAO {
 	private DateUtil dateutil = new DateUtil();
 	private String sql;
 
+	/*新しいユーザ情報を登録するためのメソッド*/
 	public void createUser(String loginUserId, String loginUserPassword, String userName) throws SQLException{
 		sql = "insert into login_user_transaction(login_id, login_pass, user_name, insert_date) values(?,?,?,?)";
 		try{
@@ -32,6 +33,7 @@ public class UserCreateCompleteDAO {
 		}
 	}
 
+	/*登録しようとしているIDが既に使用されているかどうかをチェックするメソッド*/
 	public boolean userSameInfo(String loginUserId) throws SQLException{
 		Boolean ret = false;
 		sql = "SELECT * FROM login_user_transaction WHERE login_id=?";

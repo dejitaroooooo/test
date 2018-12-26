@@ -10,18 +10,18 @@ import com.opensymphony.xwork2.ActionSupport;
 public class UserBuyItemListAction extends ActionSupport{
 	private String order_column = "insert_date";
 	private String order_type = "DESC";
-	private UserBuyItemListDAO userBuyItemDAO = new UserBuyItemListDAO();
 	private ArrayList<MyPageDTO> userBuyItemList = new ArrayList<MyPageDTO>();
 	private String deleteFlg;
 
 	public String execute() throws SQLException{
 		String result = SUCCESS;
 
+		/*デリートフラグが立っていない場合*/
 		if(deleteFlg == null){
-			System.out.println("column = " + order_column);
-			System.out.println("type = " + order_type);
+			UserBuyItemListDAO userBuyItemDAO = new UserBuyItemListDAO();
 			userBuyItemList = userBuyItemDAO.getUserBuyItemInfo(order_column, order_type);
 		}
+		/*削除ボタンが押下され、デリートフラグが立った場合*/
 		else if(deleteFlg.equals("1")){
 			delete();
 		}
@@ -30,9 +30,12 @@ public class UserBuyItemListAction extends ActionSupport{
 	}
 
 	public void delete() throws SQLException{
+		/*全ユーザの購入履歴を全て削除*/
+		UserBuyItemListDAO userBuyItemDAO = new UserBuyItemListDAO();
 		userBuyItemDAO.deleteUserBuyItemInfo();
 	}
 
+	/*以下セッター＆ゲッター*/
 	public String getOrder_column() {
 		return order_column;
 	}

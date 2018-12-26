@@ -34,7 +34,7 @@
 			<h3>以下の内容で登録登録します。<br>よろしいですか？</h3>
 			<table>
 				<!-- 確認フォーム -->
-				<s:form action="ItemCreateCompleteAction">
+				<s:form action="ItemCreateCompleteAction" name="s">
 					<tr>
 						<td><label>商品名：</label></td>
 						<td><s:property value="itemName" escape="false"/></td>

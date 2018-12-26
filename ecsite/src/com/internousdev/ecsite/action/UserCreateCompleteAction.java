@@ -13,17 +13,20 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 	private String loginPassword;
 	private String userName;
 	public Map<String, Object> session;
-	private UserCreateCompleteDAO userCreateCompleteDAO = new UserCreateCompleteDAO();
 
 	public String execute() throws SQLException{
+
+		/*ユーザ情報をDBに保存*/
+		UserCreateCompleteDAO userCreateCompleteDAO = new UserCreateCompleteDAO();
 		userCreateCompleteDAO.createUser(
 		session.get("loginUserId").toString(),
 		session.get("loginPassword").toString(),
 		session.get("userName").toString());
-		String result = SUCCESS;
-		return result;
+
+		return SUCCESS;
 	}
 
+	/*以下セッター＆ゲッター*/
 	public String getLoginUserId() {
 		return loginUserId;
 	}

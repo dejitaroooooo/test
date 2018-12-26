@@ -15,14 +15,15 @@ public class GoHomeAction extends ActionSupport implements SessionAware{
 	private ArrayList<ItemInfoDTO> itemList = new ArrayList<ItemInfoDTO>();
 
 	public String execute() throws SQLException{
+
+		/*商品リストを取得*/
 		ItemListDAO itemInfoDAO = new ItemListDAO();
-
 		itemList = itemInfoDAO.getItemInfo();
-
 
 		return SUCCESS;
 	}
 
+	/*以下ゲッター＆セッター*/
 	public Map<String, Object> getSession(){
 		return this.session;
 	}

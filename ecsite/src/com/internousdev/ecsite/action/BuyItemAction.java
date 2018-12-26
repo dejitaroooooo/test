@@ -15,10 +15,6 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class BuyItemAction extends ActionSupport implements SessionAware{
 	public Map<String, Object> session;
-	private BuyItemDAO buyItemDAO = new BuyItemDAO();
-//	private BuyItemDTO buyItemDTO = new BuyItemDTO();
-
-//	private ItemListDAO itemInfoDAO = new ItemListDAO();
 	private ArrayList<ItemInfoDTO> itemList = new ArrayList<ItemInfoDTO>();
 	private ArrayList<String> genreList= new ArrayList<String>();
 	private String selectedGenre = "全て";
@@ -27,33 +23,27 @@ public class BuyItemAction extends ActionSupport implements SessionAware{
 	private String pageNo;
 
 	public String execute() throws SQLException{
-//		genreList.add("文房具");
-//		genreList.add("家電");
-//		genreList.add("家具");
-//		genreList.add("食材");
-//		session.put("genreList", genreList);
-//		System.out.println(selectedGenre);
-
 		String result = "login";
+
+		/*ログインしている場合*/
 		if(session.containsKey("login_user_id")){
 
+			/*商品情報を取得*/
+			BuyItemDAO buyItemDAO = new BuyItemDAO();
 			itemList = buyItemDAO.getItemInfo(search, selectedGenre);
 			session.put("itemList", itemList);
 
-
-//			ItemListDAO itemInfoDao= new ItemListDAO();
-//			itemInfoDtoList = itemInfoDao.getItemInfo();
+			//ページネーションに関する情報を取得する
 			Pagination pagination = new Pagination();
 			PaginationDTO paginationDTO = new PaginationDTO();
-			//ページャーに関する情報を取得する
 			if(pageNo==null){
 				paginationDTO = pagination.initialize(itemList, 9);
-			}else{
+			}
+			else{
 				paginationDTO = pagination.getPage(itemList, 9, pageNo);
-				System.out.println(pageNo);
 			}
 
-			System.out.println("page:"+pageNo);
+			/*ページネーション用の情報をセッションに保存*/
 			session.put("itemInfoDtoList", paginationDTO.getCurrentItemInfoPage());
 			session.put("totalPageSize", paginationDTO.getTotalPageSize());
 			session.put("currentPageNo", paginationDTO.getCurrentPageNo());
@@ -67,13 +57,13 @@ public class BuyItemAction extends ActionSupport implements SessionAware{
 			session.put("nextPageNo", paginationDTO.getNextPageNo());
 			session.put("previousPageNo", paginationDTO.getPreviousPageNo());
 
-			System.out.println("i:" + session.get("totalPageSize"));
-
 			result = SUCCESS;
 		}
+
 		return result;
 	}
 
+	/*以下セッター＆ゲッター*/
 	public ArrayList<ItemInfoDTO> getItemList() {
 		return itemList;
 	}

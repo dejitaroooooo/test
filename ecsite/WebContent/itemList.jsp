@@ -15,13 +15,11 @@
 <link rel="stylesheet" type="text/css" href="./css/style.css">
 
 <script type="text/javascript">
-function deleteCheck(itemName){
-	var hoge = document.forms.deleteItem.item.value;
+function deleteCheck(){
 	if(confirm("削除します。"+<br>+"よろしいですか？")){
-		alert("");
 		return true;
 	}
-    else {
+    else{
 	   	return false;
     }
 }
@@ -95,12 +93,12 @@ function deleteCheck(itemName){
 					</s:iterator>
 				</table>
 
-			<!-- 商品情報の全削除 -->
-			<s:form action="ItemListDeleteConfirmAction">
-				<s:submit value="商品情報を全て削除"/>
-			</s:form>
-
+			<!-- ボトム -->
 			<div id="bottom">
+				<!-- 商品情報の全削除 -->
+				<s:form action="ItemListDeleteConfirmAction">
+					<s:submit value="商品情報を全て削除"/>
+				</s:form>
 			</div>
 
 		</div>

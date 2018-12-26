@@ -39,8 +39,8 @@
 
 			<!-- 入力フォーム -->
 			<s:form action="LoginAction">
-				<s:textfield name="loginUserId"/>
-				<s:password name="loginPassword"/>
+				<s:textfield name="loginUserId" placeholder = "ログインID"/>
+				<s:password name="loginPassword" placeholder = "パスワード"/>
 				<input type="hidden" name="checkFlg" value="1"/>
 				<s:submit value="ログイン"/>
 			</s:form>

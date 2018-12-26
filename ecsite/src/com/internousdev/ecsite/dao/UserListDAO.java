@@ -13,6 +13,7 @@ public class UserListDAO {
 	DBConnector dbConnector = new DBConnector();
 	Connection connection = dbConnector.getConnection();
 
+	/*全ユーザ情報をDBから取得する*/
 	public ArrayList<UserInfoDTO> getUserInfo() throws SQLException{
 		ArrayList<UserInfoDTO> userInfoDTO = new ArrayList<UserInfoDTO>();
 

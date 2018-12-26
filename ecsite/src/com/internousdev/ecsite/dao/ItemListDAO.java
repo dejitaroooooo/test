@@ -74,6 +74,7 @@ public class ItemListDAO {
 		return itemInfoDTO;
 	}
 
+	/*該当する商品の価格とストック数を変更する*/
 	public int updateItem(String id, String itemPrice, String itemStock) throws SQLException{
 		String sql ="UPDATE item_info_transaction SET item_price=?, item_stock=? WHERE id=?";
 		int ret = 0;
@@ -98,13 +99,15 @@ public class ItemListDAO {
 		String presql = "SELECT item_transaction_id FROM user_buy_item_transaction WHERE item_transaction_id=?";
 		String sql = "DELETE FROM item_info_transaction WHERE id=?";
 
+		/*渡されたIDを持つ商品が購入履歴DBに存在するかどうか確認する*/
 		try{
 			PreparedStatement preps = connection.prepareStatement(presql);
 			preps.setString(1, id);
 			ResultSet resultSet = preps.executeQuery();
 
-			/*resultSetに行が存在するかどうかを判別*/
+			/*該当する商品がDBに存在する場合*/
 			if(resultSet.isBeforeFirst()){
+				/*そのままメソッドを終了する*/
 				return -1;
 			}
 		}
@@ -112,6 +115,7 @@ public class ItemListDAO {
 			e.printStackTrace();
 		}
 
+		/*渡されたIDを持つ商品の情報をDBから削除する*/
 		try{
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setString(1, id);

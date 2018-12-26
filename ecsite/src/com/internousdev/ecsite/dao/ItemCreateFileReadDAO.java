@@ -13,9 +13,9 @@ public class ItemCreateFileReadDAO {
 	private DBConnector db = new DBConnector();
 	private Connection con = db.getConnection();
 	private DateUtil dateutil = new DateUtil();
+	private String sql;
 
-	String sql = "";
-
+	/*商品情報をDBに登録する*/
 	public void insertExcelItemInfo(ArrayList<ItemCreateFileReadDTO> itemList) throws SQLException{
 		sql = "INSERT INTO item_info_transaction(item_name, item_genre, item_price, item_stock, insert_date) values (?,?,?,?,?)";
 		try{

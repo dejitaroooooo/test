@@ -11,44 +11,40 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class ItemCreateConfirmAction extends ActionSupport implements SessionAware{
 	private String itemName;
+	private String itemGenre;
 	private String itemPrice;
 	private String itemStock;
+	private String errorMessage;
 	public Map<String, Object> session;
-	String errorMessage;
-
 	private ArrayList<ItemInfoDTO> registrationItem = new ArrayList<ItemInfoDTO>();
 
-
 	public String execute() throws SQLException{
-		String result = SUCCESS;
+		String result = ERROR;
 
-		/*入力漏れがないか確認*/
-//		for(int i=0; i<registrationItem.size(); i++){
-
-			/*デバック用*/
-//			System.out.println("商品名：" + registrationItem.get(i).getItemName());
-//			System.out.println("価格：" + registrationItem.get(i).getItemPrice());
-//			System.out.println("在庫数：" + registrationItem.get(i).getItemStock());
-
-//			if(!(registrationItem.get(i).getItemName().equals(""))
-//					&& !(registrationItem.get(i).getItemPrice().equals(""))
-//					&& !(registrationItem.get(i).getItemStock().equals(""))){
-			if(!(itemName.equals(""))
-				&& !(itemPrice.equals(""))
-				&& !(itemStock.equals(""))){
-				session.put("createItemName", itemName);
-				session.put("createItemPrice", itemPrice);
-				session.put("createItemStock", itemStock);
-			}
-			else{
-				setErrorMessage("未入力の項目があります。");
-				result = ERROR;
-//			}
+		/*記入漏れがないか確認*/
+		if(!(itemName.equals("")) && !(itemPrice.equals("")) && !(itemStock.equals(""))){
+			/*セッションに商品情報を保存*/
+			session.put("createItemName", itemName);
+			session.put("createItemGenre", itemGenre);
+			session.put("createItemPrice", itemPrice);
+			session.put("createItemStock", itemStock);
+			result = SUCCESS;
 		}
-		/*Mapに登録*/
-//		session.put("registrationItem", registrationItem);
+		else{
+			/*エラーメッセージを入れる*/
+			setErrorMessage("未入力の項目があります。");
+		}
 
 		return result;
+	}
+
+	/*以下セッター＆ゲッター*/
+	public String getItemGenre() {
+		return itemGenre;
+	}
+
+	public void setItemGenre(String itemGenre) {
+		this.itemGenre = itemGenre;
 	}
 
 	public ArrayList<ItemInfoDTO> getRegistrationItem() {

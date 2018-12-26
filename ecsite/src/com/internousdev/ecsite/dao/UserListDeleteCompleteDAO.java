@@ -10,6 +10,7 @@ public class UserListDeleteCompleteDAO {
 	private DBConnector dbConnector = new DBConnector();
 	private Connection connection = dbConnector.getConnection();
 
+	/*全ユーザのユーザ情報をDBから削除する*/
 	public int userInfoDelete() throws SQLException{
 		String sql = "delete from login_user_transaction";
 		PreparedStatement preparedStatement;

@@ -13,17 +13,21 @@ public class ItemCreateCompleteAction extends ActionSupport implements SessionAw
 	private String itemPrice;
 	private String userName;
 	public Map<String, Object> session;
-	private ItemCreateCompleteDAO itemCreateCompleteDAO = new ItemCreateCompleteDAO();
 
 	public String execute() throws SQLException{
+
+		/*商品情報をDBに登録する*/
+		ItemCreateCompleteDAO itemCreateCompleteDAO = new ItemCreateCompleteDAO();
 		itemCreateCompleteDAO.createItem(
-		session.get("createItemName").toString(),
-		session.get("createItemPrice").toString(),
-		session.get("createItemStock").toString());
+			session.get("createItemName").toString(),
+			session.get("createItemGenre").toString(),
+			session.get("createItemPrice").toString(),
+			session.get("createItemStock").toString());
 
 		return SUCCESS;
 	}
 
+	/*以下セッター＆ゲッター*/
 	public String getItemName() {
 		return itemName;
 	}

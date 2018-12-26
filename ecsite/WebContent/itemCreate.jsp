@@ -42,6 +42,16 @@
 						<td><input type="text" name="itemName" value=""/></td>
 					</tr>
 					<tr>
+						<td>ジャンル</td>
+						<td><select name="itemGenre" style="float:left">
+								<option value="文房具">文房具</option>
+								<option value="家具">家具</option>
+								<option value="家電">家電</option>
+								<option value="食材">食材</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
 						<td>価格</td>
 						<td><input type="text" name="itemPrice" value=""/></td>
 					</tr>

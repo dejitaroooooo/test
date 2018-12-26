@@ -28,12 +28,9 @@
 }
 	#header #logo{
 		margin-right: auto;/*左寄せにする*/
-/* 		background-color:green; 背景色 */
-
-
 	}
 		#header #logo a{
-			display: inline-block; /*???*/
+			display: inline-block;
 	 		background: url(../img/logoclick.png) center / cover no-repeat; /*背景に画像を設置*/
 	 		border-radius:10px;
 		}
@@ -54,7 +51,6 @@
 			border:none;
 			background-color:aliceblue;
 			color:green;
-/* 			border-radius:50px 0px 0px 50px; */
 		}
 			#search #search-select option{
 				color: blue;
@@ -76,9 +72,6 @@
 			}
 
 	#login{
-/* 		margin-left: auto; 右寄せにする */
-/* 		margin-right:10px; 右端から10px分空ける */
-
 		width:100px;
 		height:40px;
 		text-align:center;/*テキストを左右中央寄せ*/
@@ -98,7 +91,6 @@
 			right:0;
 			bottom:0;
 			left:0;
-
 			border-radius:4px; /*角を丸く*/
 		}
 		#login a:hover{

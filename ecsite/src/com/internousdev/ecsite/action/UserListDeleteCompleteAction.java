@@ -6,12 +6,13 @@ import com.internousdev.ecsite.dao.UserListDeleteCompleteDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class UserListDeleteCompleteAction extends ActionSupport{
-	private UserListDeleteCompleteDAO userListDeleteCompleteDAO = new UserListDeleteCompleteDAO();
 	private int ret;
 
 	public String execute() throws SQLException{
+
+		/*全ユーザのユーザ情報を削除する*/
+		UserListDeleteCompleteDAO userListDeleteCompleteDAO = new UserListDeleteCompleteDAO();
 		ret = userListDeleteCompleteDAO.userInfoDelete();
-		System.out.println("合計 " + ret + "件のユーザ情報を削除しました。");
 
 		return SUCCESS;
 	}
