@@ -18,7 +18,7 @@ public class ItemCreateFileReadUtil{
 		ArrayList<ItemCreateFileReadDTO> excelDTO = new ArrayList<ItemCreateFileReadDTO>();
 
 		/*パス*/
-		String filename1 = "C://Users/internousdev/Desktop/workspace/workspace-oode/test/ecsite/WebContent/file/";
+		String filename1 = "C:\\Users\\Shinnya\\Documents\\github\\test\\ecsite\\WebContent\\file\\";
 		/*ファイル名*/
 		String filename2 = excelname;
 

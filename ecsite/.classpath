@@ -14,9 +14,8 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/poi-4.0.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/internousdev/Desktop/workspace/workspace-oode/poi-4.0.1/poi-4.0.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/internousdev/Desktop/workspace/workspace-oode/poi-4.0.1/poi-ooxml-4.0.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/internousdev/Desktop/workspace/workspace-oode/poi-4.0.1/poi-ooxml-schemas-4.0.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/internousdev/Desktop/workspace/workspace-oode/poi-4.0.1/ooxml-lib/xmlbeans-3.0.2.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/poi-ooxml-4.0.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/poi-ooxml-schemas-4.0.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xmlbeans-3.0.1.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
